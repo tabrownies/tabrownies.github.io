@@ -51,30 +51,33 @@ nav ul li a:hover {
     text-decoration-thickness: from-font;
 }
 
-@media only screen and (max-width:574px){
+@media only screen and (max-width:680px){
     header{
-        height:50px;
+        width:100vw;
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
     }
 
     header h1{
-        position: fixed;
-        top:0px;
+        /* position: fixed; */
+        /* top:0px; */
         padding:10px;
 
-        border-bottom: 3px solid #ccc;
+        
+
+        
         width:100vw;
         z-index:2;
-        background-color: white;
         display: flex;
         justify-content: center;
     }
     nav{
         position: fixed;
-        background-color: white;
+        /* background-color: white; */
         z-index:2;
         bottom:0px;
         width:100vw;
-        border-top: 3px solid #ccc;
+        border-top: 3px solid var(--mezzo-dark)
     }
     nav ul{
         justify-content: space-between;
@@ -83,7 +86,7 @@ nav ul li a:hover {
     
 }
 
-@media only screen and (min-width:575px){
+@media only screen and (min-width:681px){
     header {
         display: flex;
         justify-content: space-between;
@@ -100,4 +103,22 @@ nav ul li a:hover {
         padding: 10px;
     }
     
+}
+
+@media only screen and (max-width:490px){
+    nav ul{
+        font-size:20px;
+    }
+    nav li{
+        padding:10px 10px;
+    }
+}
+
+@media only screen and (max-width:330px){
+    nav ul{
+        font-size:15px;
+    }
+    nav li{
+        padding:10px 10px;
+    }
 }

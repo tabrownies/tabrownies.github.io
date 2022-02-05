@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
+:root{
+    --base:white;
+    --light: rgb(210,230,243);
+    --mezzo-light:rgb(149,205,240);
+    --mid: rgb(73,161,233);
+    --mezzo-dark: rgb(34,82,115);
+    --dark: rgb(15,45,59);
+
+}
+
+/* colors */
+header{
+    background-color: var(--mezzo-light);
+    border-color:var(--mezzo-dark);
+}
+nav{
+    background-color: var(--mid);
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -14,8 +33,11 @@ nav ul {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
-    padding: 20px 30px;
+    /* padding: 20px 30px; */
     font-size: 25px;
+}
+nav li{
+    padding:20px 30px;
 }
 
 nav ul li a{
@@ -67,7 +89,8 @@ nav ul li a:hover {
         justify-content: space-between;
         align-items: center;
         padding: 10px 10px 10px 40px;
-        border-bottom: 3px solid #ccc;
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
 
     }
     

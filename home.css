@@ -1,22 +1,23 @@
 .about{
-    /* width:700px; */
     display: flex;
-    justify-content: left;
+    justify-content: center;
 }
+
 .about-text{
-    width:750px;
+    /* width:750px; */
     padding:10px 20px;
 }
 
 .about-text h2{
     font-size:45px;
     padding:10px;
-    
+    text-align: center;
 }
 
 .about-text h3{
     font-size:35px;
     padding:5px 10px;
+    padding-left:40px;
 }
 
 .about-text p{
@@ -28,4 +29,30 @@
 }
 .about-text a:hover{
     color:gray;
+}
+
+.picture-frame{
+    display: flex;
+    justify-content: center;
+}
+
+.my-picture{
+    border-radius: 100%;
+    width:350px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    box-shadow: 3px 3px #eaeaea;
+}
+
+.project-picture{
+    width:500px;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    box-shadow: 3px 3px #eaeaea;
+}
+
+@media only screen and (min-width:875px){
+    .about-text{
+        width:75%;
+    }
 }

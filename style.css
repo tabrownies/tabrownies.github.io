@@ -14,9 +14,19 @@
 header{
     background-color: var(--mezzo-light);
     border-color:var(--mezzo-dark);
+    position:fixed;
+    width:100vw;
+}
+.header-space{
+    /* width:100px; */
+    height:100px;
+    display: block;
 }
 nav{
     background-color: var(--mid);
+}
+.nav-space{
+    display: none;
 }
 
 * {
@@ -57,10 +67,11 @@ nav ul li a:hover {
         border-bottom-width: 3px;
         border-bottom-style: solid;
     }
+    .header-space{
+        height:50px;
+    }
 
     header h1{
-        /* position: fixed; */
-        /* top:0px; */
         padding:10px;
 
         
@@ -78,6 +89,10 @@ nav ul li a:hover {
         bottom:0px;
         width:100vw;
         border-top: 3px solid var(--mezzo-dark)
+    }
+    .nav-space{
+        height:60px;
+        display:block;
     }
     nav ul{
         justify-content: space-between;

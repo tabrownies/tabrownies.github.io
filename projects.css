@@ -9,6 +9,7 @@
     border-radius: 3px;
     position:relative;
     color:inherit;
+    z-index: -1;
 }
 
 .project-box img {
@@ -47,7 +48,8 @@
         align-items: center;
     }
     .project-box{
-        width:80vw;
+        height:70vw;
+        aspect-ratio: 4/3;
         margin:20px;
     }
 }

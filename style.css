@@ -10,12 +10,18 @@
 
 }
 
+body{
+    background-color: var(--mezzo-dark);
+    color:whitesmoke;
+}
+
 /* colors */
 header{
     background-color: var(--mezzo-light);
-    border-color:var(--mezzo-dark);
+    border-color:whitesmoke;
     position:fixed;
     width:100vw;
+    color:var(--dark);
 }
 .header-space{
     /* width:100px; */
@@ -47,7 +53,10 @@ nav ul {
     font-size: 25px;
 }
 nav li{
-    padding:20px 30px;
+    padding:10px 30px;
+    /* there might be a better way to center this */
+    display:flex;
+    justify-content: center;
 }
 
 nav ul li a{
@@ -56,7 +65,11 @@ nav ul li a{
     text-decoration: none;
 }
 
-nav ul li a:hover {
+nav ul li:hover{
+    background-color: rgba(81, 73, 233, 0.597);
+}
+
+nav ul li:hover a {
     text-decoration: underline;
     text-decoration-thickness: from-font;
 }
@@ -111,7 +124,17 @@ nav ul li a:hover {
         border-bottom-style: solid;
 
     }
+    nav{
+        border-radius: 5px;
+    }
     
+    nav ul li{
+        border-left:1px solid var(--light);
+        width:180px;
+    }
+    nav ul li:first-child{
+        border-left:none;
+    }
     
     
     nav ul li a{

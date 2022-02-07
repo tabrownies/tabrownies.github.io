@@ -26,10 +26,10 @@
     padding:10px;
 }
 .about-text a{
-    color:inherit;
+    color:var(--mezzo-light);
 }
 .about-text a:hover{
-    color:gray;
+    color:var(--mid);
 }
 
 .picture-frame{
@@ -42,14 +42,17 @@
     width:350px;
     aspect-ratio: 1/1;
     object-fit: cover;
-    box-shadow: 3px 3px #eaeaea;
+    /* box-shadow: 3px 3px #b19cd3d7; */
+    border:1.5px solid var(--light)
 }
 
 .project-picture{
     width:500px;
     object-fit: cover;
     aspect-ratio: 4/3;
-    box-shadow: 3px 3px #eaeaea;
+    /* box-shadow: 3px 3px #eaeaea; */
+    border:1.5px solid var(--light);
+    border-radius: 4px;
 }
 
 

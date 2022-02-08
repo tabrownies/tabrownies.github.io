@@ -1,12 +1,12 @@
 /* project list styles */
 .project-box {
     aspect-ratio: 4/3;
-    border: 3px solid #ccc;
+    border: 2px solid var(--dark);
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    box-shadow: 3px 3px #eaeaea;
-    border-radius: 3px;
+    /* box-shadow: 3px 3px #eaeaea; */
+    border-radius: 5px;
     position:relative;
     color:inherit;
     z-index: -1;
@@ -17,6 +17,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .project-box h2 {
@@ -26,6 +27,7 @@
     width:100%;
     padding: 0px 20px;
     background-color: rgba(200,200,200,.8);
+    color:var(--dark);
     display: flex;
     align-items: center;
 }

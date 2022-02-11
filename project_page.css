@@ -2,10 +2,8 @@
     width: 750px;
     padding: 10px 20px;
 }
-
-.project-info{
-    width:750px;
-    padding:10px 20px;
+.project-info h1{
+    font-size:50px;
 }
 
 .project-info h2{

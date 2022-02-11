@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="../../style.css" type="text/css" rel="stylesheet">
+    <link href="../../project_page.css" type="text/css" rel="stylesheet">
+    <link href="../../code.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            Projects
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+                <!-- <li>About</li> -->
+                <li><a href="/resume.pdf" target="_blank">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="header-space"></div>
+    <div class="project-info">
+        <h1>CSS Based Maze Game</h1>
+        <img src="#">
+        <p>
+            Unlike other online games which rely on a scripting language to accept user input, update the game display,
+            and alert the user when they win (or lose) <em>THE GAME</em> exclusively employs HTML and CSS to impliment
+            it's functionality.
+        </p>
+        <h2>Game Play</h2>
+        <p>
+            The user is initially presented with a square gameboard with the top-left corner colored blue with text
+            inviting the user to hover over it; no other instructions are provided however. After trial and error, the
+            user discovers that if they move their mouse to the right another, different-colored square appears, but if
+            they leave either of the squares they have already visited, all but the initial starting tile disappear.
+        </p>
+        <h2>How it works</h2>
+        <p>
+            The core functionality of the game is based on CSS <span class='code-css'>:hover</span> pseudoselectors, used in a manner
+            similar to website drop-down menus. Just like on a drop down menu, the menu appears after the user hovers
+            the mouse over a visible section of the menu, but only disappears after the user removes the cursor from
+            either the newly appeared menu or the initial area which caused the menu to appear. Taking advantage of that
+            functionality <em>The Game</em> allows users to hover through the path in the maze, remaining visible if
+            they don't leave the already discovered path, but disappears as soon as they stray, even onto an area which
+            will eventually be part of the path!
+        </p>
+        <h2>Stylistic Choices</h2>
+        <h2>Takeaways</h2>
+
+    </div>
+    <div class="nav-space"></div>
+</body>
+
+</html>

@@ -8,6 +8,57 @@
     --mezzo-dark: rgb(34,82,115);
     --dark: rgb(15,45,59);
 
+
+    /* --text:#F9FFC5;
+    --light: #194DA3;
+    --mezzo-light:#2265D4;
+    --mid: #86A34E;
+    --mezzo-dark: #5a8534;
+    --dark: #2B5D18; */
+
+    /* --text:whitesmoke;
+    --light: #93e6d3;
+    --mezzo-light:#44d4b4;
+    --mid: #4c9484;
+    --mezzo-dark: #3c857d;
+    --dark: #305c54; */
+
+    /* --text:rgb(29,29,29);
+    --dark: #93e6d3;
+    --mezzo-dark:#44d4b4;
+    --mid: #4c9484;
+    --mezzo-light: #3c857d;
+    --light: #305c54; */
+
+    /* --text:whitesmoke;
+    --light: #fff3eb;
+    --mezzo-light:#efae53;
+    --mid: #a67d7d;
+    --mezzo-dark: #3c857d;
+    --dark: #305c54; 
+    --dark:black; */
+
+    /* --text:whitesmoke;
+    --light: #EDD1DB;
+    --mezzo-light:#F95950;
+    --mid: #4c9484; /*I need a color for this
+    --mezzo-dark: #563C50;
+    --dark: #371D31; */
+
+    /* --text:whitesmoke;
+    --light: #eee;
+    --mezzo-light:#ffccd2;
+    --mid: #ffa0a0;
+    --mezzo-dark: #064663;
+    --dark: #041c32; */
+
+    /* --text:rgb(29, 29, 29);
+    --dark: #eee;
+    --mezzo-dark:#ffccd2;
+    --mid: #ffa0a0;
+    --mezzo-light: #064663;
+    --light: #041c32; */
+
 }
 
 body{

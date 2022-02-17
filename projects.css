@@ -32,6 +32,12 @@
     align-items: center;
 }
 
+/* styles for when a project doesn't have an image yet (it's pending) */
+.project-pending{
+    background-color: white;
+    
+}
+
 /* styles for hover */
 
 .project-box:hover h2{

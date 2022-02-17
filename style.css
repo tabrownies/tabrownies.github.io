@@ -73,6 +73,7 @@ header{
     position:fixed;
     width:100vw;
     color:var(--dark);
+    z-index:3;
 }
 .header-space{
     /* width:100px; */

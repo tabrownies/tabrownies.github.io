@@ -3,8 +3,6 @@
     justify-content: center;
 }
 
-
-
 .project-text{
     /* width:750px; */
     padding:10px 20px;
@@ -37,15 +35,6 @@
     justify-content: center;
 }
 
-.my-picture{
-    border-radius: 100%;
-    width:350px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    /* box-shadow: 3px 3px #b19cd3d7; */
-    border:1.5px solid var(--light)
-}
-
 .main-picture{
     width:600px;
     object-fit: cover;
@@ -58,16 +47,13 @@
 
 
 /* picture specific styles */
-@media only screen and (max-width:600px){
-    .my-picture{
-        width:80%;
-    }
-    .project-picture{
+@media only screen and (max-width:650px){
+    .main-picture{
         width:90%;
     }
 }
 @media only screen and (min-width:750px){
-    .project-picture{
+    .main-picture{
         width:700px;
     }
 }

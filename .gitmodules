@@ -1,5 +1,5 @@
 [submodule "kmeansImageFilter"]
-	path = Projects/KMeansImageFilter/kmeansImageFilter
+	path = Projects/KMeansImageFilter/kmeanImageFilter
 	url = https://github.com/tabrownies/kmeanImageFilter
 
 [submodule "planetaryOrbit"]

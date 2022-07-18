@@ -224,6 +224,8 @@ footer{
     border-color:var(--text);
     width:100vw;
     color:var(--dark);
+    border-top: 3px solid var(--dark);
+
 }
 
 footer ul{

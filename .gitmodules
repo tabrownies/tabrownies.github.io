@@ -7,9 +7,9 @@
 	url = https://github.com/tabrownies/planetaryOrbit
 
 [submodule "brickBreaker"]
-	path = Projects/BrickBreaker/brick-breaker
+	path = Projects/BrickBreaker/Brick-Breaker
 	url = https://github.com/tabrownies/Brick-Breaker
 
 [submodule "romanNumeralConverter"]
-	path = Projects/romanNumeralConverter/romanNumeralConverter
+	path = Projects/RomanNumeralConverter/RomanNumeralConverter
 	url = https://github.com/tabrownies/RomanNumeralConverter

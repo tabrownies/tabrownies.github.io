@@ -13,3 +13,7 @@
 [submodule "romanNumeralConverter"]
 	path = Projects/RomanNumeralConverter/RomanNumeralConverter
 	url = https://github.com/tabrownies/RomanNumeralConverter
+
+[submodule "marioKartDatascience"]
+	path = Projects/MarioKartDatascience/mariokart_datascience
+	url = https://github.com/tabrownies/mariokart_datascience

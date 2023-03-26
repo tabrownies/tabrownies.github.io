@@ -162,7 +162,7 @@ nav ul li:hover a {
         display:block;
     }
     nav ul{
-        justify-content: space-between;
+        justify-content: space-around;
 
     }
     

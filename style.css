@@ -184,7 +184,7 @@ nav ul li:hover a {
     
     nav ul li{
         border-right:3px solid var(--light);
-        width:180px;
+        width:220px;
     }
     nav ul li:first-child{
         border-left:3px solid var(--light);

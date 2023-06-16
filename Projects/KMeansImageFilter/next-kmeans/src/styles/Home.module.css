@@ -1,0 +1,65 @@
+/* use grid for basic layout */
+.wrapper{
+  display: grid;
+  --header-height: 50px;
+  --footer-height:30px;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: var(--header-height) calc(100vh - var(--header-height) - var(--footer-height)) var(--footer-height);
+}
+.header{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end:2;
+}
+.imageHolder{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end:3;
+}
+.optionsHolder{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end:3;
+}
+.footer{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end:4;
+}
+
+/* header and footer internal stylings */
+.header{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+
+  background-color: var(--back1);
+  border-bottom: 2px solid var(--text3);
+}
+.header h1{
+  padding-left:150px;
+}
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--back1);
+  border-top: 2px solid var(--text3);
+}
+.footer a{
+  color: var(--text2);
+}
+.footer a:hover{
+  color:var(--text3);
+}
+
+/* main area internal styles */
+.optionsHolder{
+  border-left:2px solid var(--text3);
+
+}

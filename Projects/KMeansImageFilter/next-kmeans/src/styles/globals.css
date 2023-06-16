@@ -1,0 +1,18 @@
+*{
+    /* make things standard sizing */
+    box-sizing: border-box;
+    border:0;
+    padding:0;
+    margin:0;
+    /* variables */
+    --text1: black;
+    --text2: #111;
+    --back1: #c8d9ed;
+    --back2: #e1f1fd;
+    --back3: #c1d8f0;
+    --text3: #4663ac;
+    --back4: #d2deeb;
+    /* set the universal font */
+    font-family: sans-serif;
+
+}

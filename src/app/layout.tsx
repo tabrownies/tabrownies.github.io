@@ -15,7 +15,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header>
+          <h1>
+            About Me
+          </h1>
+          <nav>
+            <ul>
+              <li><a href="https://github.com/tabrownies">My GitHub</a></li>
+              <li><a href="/assets/resumes/resume.pdf" target="_blank">Resume</a></li>
+            </ul>
+          </nav>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }

@@ -79,15 +79,16 @@
     });
     spotlight.style.left = x + "px";
     spotlight.style.top = y + "px";
-    // make 1000 2x2 spans that rotated a random amount and put them randomly in the background spinning slowly
+
     const background = document.getElementById("background");
 
     for (let i = 0; i < 1000; i++) {
       let span = document.createElement("span");
       span.style.width = "2px";
-      span.style.height = "3px";
+      span.style.height = Math.random() > 0.5 ? "3px" : "2px";
       span.style.position = "absolute";
       span.style.backgroundColor = "white";
+      span.style.opacity = Math.min(Math.random() + 0.25, 1);
       span.style.left = Math.random() * 100 + "vw";
       span.style.top = Math.random() * 100 + "vh";
       span.style.transform = "rotate(" + Math.random() * 360 + "deg)";

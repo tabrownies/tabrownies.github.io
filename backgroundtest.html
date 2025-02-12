@@ -1,6 +1,38 @@
 <html>
+  <head>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        font: inherit;
+      }
+
+      html {
+        color-scheme: dark light;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      img,
+      picture,
+      SVG,
+      video {
+        display: block;
+        max-width: 100%;
+      }
+    </style>
+  </head>
   <body style="background-color: rgb(0, 0, 0)">
     <div
+      id="background"
       style="
         width: 100vw;
         height: 100vh;
@@ -13,7 +45,7 @@
       "
     >
       <div
-        id="highlight1"
+        id="spotlight"
         style="
           background: radial-gradient(
             circle,
@@ -37,15 +69,29 @@
     let x = 0;
     let y = 0;
     let radius = 200;
-    let highlight1 = document.getElementById("highlight1");
+    let spotlight = document.getElementById("spotlight");
     let body = document.querySelector("body");
     body.addEventListener("mousemove", (e) => {
       x = e.clientX - radius;
       y = e.clientY - radius;
-      highlight1.style.left = x + "px";
-      highlight1.style.top = y + "px";
+      spotlight.style.left = x + "px";
+      spotlight.style.top = y + "px";
     });
-    highlight1.style.left = x + "px";
-    highlight1.style.top = y + "px";
+    spotlight.style.left = x + "px";
+    spotlight.style.top = y + "px";
+    // make 1000 2x2 spans that rotated a random amount and put them randomly in the background spinning slowly
+    const background = document.getElementById("background");
+
+    for (let i = 0; i < 1000; i++) {
+      let span = document.createElement("span");
+      span.style.width = "2px";
+      span.style.height = "3px";
+      span.style.position = "absolute";
+      span.style.backgroundColor = "white";
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.top = Math.random() * 100 + "vh";
+      span.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+      background.appendChild(span);
+    }
   </script>
 </html>

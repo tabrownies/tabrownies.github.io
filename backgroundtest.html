@@ -1,0 +1,51 @@
+<html>
+  <body style="background-color: rgb(0, 0, 0)">
+    <div
+      style="
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        position: absolute;
+        padding: 0px;
+        margin: 0px;
+        top: 0px;
+        left: 0px;
+      "
+    >
+      <div
+        id="highlight1"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(14, 75, 198, 0.25),
+            rgba(0, 2, 94, 0.25),
+            transparent
+          );
+          height: 400px;
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-radius: 100%;
+          position: absolute;
+        "
+      ></div>
+    </div>
+  </body>
+  <script>
+    let x = 0;
+    let y = 0;
+    let radius = 200;
+    let highlight1 = document.getElementById("highlight1");
+    let body = document.querySelector("body");
+    body.addEventListener("mousemove", (e) => {
+      x = e.clientX - radius;
+      y = e.clientY - radius;
+      highlight1.style.left = x + "px";
+      highlight1.style.top = y + "px";
+    });
+    highlight1.style.left = x + "px";
+    highlight1.style.top = y + "px";
+  </script>
+</html>

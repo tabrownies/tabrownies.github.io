@@ -1,5 +1,10 @@
 <html>
   <head>
+    <!-- roboto google font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    />
     <style>
       *,
       *::before,
@@ -42,6 +47,7 @@
         margin: 0px;
         top: 0px;
         left: 0px;
+        z-index: -1;
       "
     >
       <div
@@ -49,8 +55,8 @@
         style="
           background: radial-gradient(
             circle,
-            rgba(198, 14, 14, 0.25),
-            rgba(94, 0, 0, 0.25),
+            rgba(14, 75, 198, 0.25),
+            rgba(0, 2, 94, 0.25),
             transparent
           );
           height: 400px;
@@ -63,6 +69,47 @@
           position: absolute;
         "
       ></div>
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        z-index: 1;
+      "
+    >
+      <h1
+        style="
+          color: whitesmoke;
+          font-family: Roboto;
+          font-size: 3rem;
+          padding: 20px;
+        "
+      >
+        My name is <span style="color: rgb(67, 127, 255)">Timothy.</span>
+      </h1>
+      <h2 style="color: whitesmoke; font-family: Roboto; font-size: 2rem">
+        And I like to
+        <span style="color: rgb(67, 127, 255)">build</span> things.
+      </h2>
+      <div
+        style="
+          padding: 8px 32px;
+          border: 2px solid rgb(67, 127, 255);
+          border-radius: 2px;
+          margin: 32px;
+          color: rgb(67, 127, 255);
+          font-family: Roboto;
+          font-size: 1.5rem;
+          background-color: black;
+        "
+      >
+        See My Work
+      </div>
     </div>
   </body>
   <script>

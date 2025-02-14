@@ -45,7 +45,13 @@
       #background2 {
         width: 100%;
         height: 50vh;
-        background-color: rgb(140, 215, 255);
+        background: linear-gradient(to bottom, rgb(140, 215, 255), white);
+      }
+      #background3 {
+        width: 100%;
+        height: 100vh;
+        /* make it a gradient vertically */
+        background-color: white;
       }
 
       #rocketContainer {
@@ -72,6 +78,7 @@
   <body>
     <div id="background1"></div>
     <div id="background2"></div>
+    <div id="background3"></div>
     <div id="rocketContainer">
       <img id="rocket" src="./Saturn_V.svg" alt="Rocket Image" />
     </div>

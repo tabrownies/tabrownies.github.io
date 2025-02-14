@@ -255,15 +255,20 @@
 
       // Rocket Launch Effect
       const rocket = document.getElementById("rocket");
-
+      let prevMoveRight = 0;
       function updateRocketPosition() {
-        const scrollY = window.scrollY;
+        let scrollY = window.scrollY;
+
         const maxScroll = (window.innerHeight / 4) * 3;
 
-        const speed = 2.5;
-        const moveUp = Math.min(scrollY * 1.2 * speed, window.innerHeight * 2);
-        const moveRight = Math.min(scrollY * 0.25 * speed, window.innerWidth);
+        const speed = 2;
         const rotateAngle = Math.max((1 - scrollY / maxScroll) * 20, 0);
+        const moveUp = Math.min(scrollY * 1.2 * speed);
+        const moveRight =
+          rotateAngle === 0
+            ? prevMoveRight
+            : Math.min(scrollY * 0.25 * speed, window.innerWidth);
+        prevMoveRight = moveRight;
         const opacity = scrollY > window.innerHeight * 1.5 ? 0 : 1;
 
         rocket.style.transform = `translate(${moveRight}px, -${moveUp}px) rotate(${rotateAngle}deg)`;

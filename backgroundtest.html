@@ -33,6 +33,21 @@
         display: block;
         max-width: 100%;
       }
+
+      /* custom styles */
+      @keyframes twinkleStar {
+        from,
+        to {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.4);
+        }
+      }
+      span {
+        animation: twinkleStar 1s infinite;
+        animation-delay: calc(2s * var(--random));
+      }
     </style>
   </head>
   <body style="background-color: rgb(0, 0, 0)">
@@ -131,6 +146,7 @@
 
     for (let i = 0; i < 1000; i++) {
       let span = document.createElement("span");
+      span.style.setProperty("--random", Math.random());
       span.style.width = "2px";
       span.style.height = Math.random() > 0.5 ? "3px" : "2px";
       span.style.position = "absolute";

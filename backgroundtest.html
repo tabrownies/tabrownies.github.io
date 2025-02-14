@@ -38,10 +38,10 @@
       @keyframes twinkleStar {
         from,
         to {
-          transform: scale(1);
+          scale: 0.75;
         }
         50% {
-          transform: scale(1.4);
+          scale: 1.25;
         }
       }
       span {
@@ -133,12 +133,17 @@
     let radius = 200;
     let spotlight = document.getElementById("spotlight");
     let body = document.querySelector("body");
+    let stars = [];
+
     body.addEventListener("mousemove", (e) => {
       x = e.clientX - radius;
       y = e.clientY - radius;
       spotlight.style.left = x + "px";
       spotlight.style.top = y + "px";
+
+      updateTwinklingStars();
     });
+
     spotlight.style.left = x + "px";
     spotlight.style.top = y + "px";
 
@@ -146,16 +151,39 @@
 
     for (let i = 0; i < 1000; i++) {
       let span = document.createElement("span");
+      let starSize = Math.random() > 0.5 ? "3px" : "2px";
+
       span.style.setProperty("--random", Math.random());
       span.style.width = "2px";
-      span.style.height = Math.random() > 0.5 ? "3px" : "2px";
+      span.style.height = starSize;
       span.style.position = "absolute";
       span.style.backgroundColor = "white";
       span.style.opacity = Math.min(Math.random() + 0.25, 1);
-      span.style.left = Math.random() * 100 + "vw";
-      span.style.top = Math.random() * 100 + "vh";
+      span.style.left = Math.random() * window.innerWidth + "px";
+      span.style.top = Math.random() * window.innerHeight + "px";
       span.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+
       background.appendChild(span);
+      stars.push(span);
+    }
+
+    function updateTwinklingStars() {
+      const spotlightBounds = spotlight.getBoundingClientRect();
+
+      stars.forEach((star) => {
+        const starBounds = star.getBoundingClientRect();
+
+        if (
+          starBounds.left >= spotlightBounds.left &&
+          starBounds.right <= spotlightBounds.right &&
+          starBounds.top >= spotlightBounds.top &&
+          starBounds.bottom <= spotlightBounds.bottom
+        ) {
+          star.style.animation = "twinkleStar 1s infinite";
+        } else {
+          star.style.animation = "none";
+        }
+      });
     }
   </script>
 </html>

@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       *,
       *::before,
@@ -44,14 +45,14 @@
       }
       #background2 {
         width: 100%;
-        height: 50vh;
-        background: linear-gradient(to bottom, rgb(140, 215, 255), white);
+        height: 20vh;
+        background: rgb(140, 215, 255);
       }
       #background3 {
         width: 100%;
         height: 100vh;
         /* make it a gradient vertically */
-        background-color: white;
+        background-color: rgb(140, 215, 255);
       }
 
       #rocketContainer {
@@ -69,8 +70,7 @@
         position: absolute; /* Keeps it positioned relative to #rocketContainer */
         height: 900px;
         fill: white;
-        rotate: 20deg;
-        right: 300px; /* Start slightly off-screen on the right */
+        left: 50%; /* Start slightly off-screen on the right */
         bottom: -15%; /* Partially below the screen */
       }
     </style>
@@ -88,12 +88,14 @@
 
     function updateRocketPosition() {
       const scrollY = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const maxScroll = (window.innerHeight / 4) * 3;
+
+      const speed = 1.5;
 
       // Move the rocket up and to the right
-      const moveUp = Math.min(scrollY * 1.2, window.innerHeight * 2); // Moves beyond screen
-      const moveRight = Math.min(scrollY * 0.5, window.innerWidth * 0.4); // Gradually right
-      const rotateAngle = Math.max(20 - (scrollY / maxScroll) * 20, 0); // Rotates from 20° to 0°
+      const moveUp = Math.min(scrollY * 1.2 * speed, window.innerHeight * 2); // Moves beyond screen
+      const moveRight = Math.min(scrollY * 0.25 * speed, window.innerWidth); // Gradually right
+      const rotateAngle = Math.max((1 - scrollY / maxScroll) * 20, 0); // Rotates from 0° to 20°
 
       // Fade out when it exits the screen
       const opacity = scrollY > window.innerHeight * 1.5 ? 0 : 1;

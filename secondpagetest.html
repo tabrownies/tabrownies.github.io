@@ -183,36 +183,15 @@
       }
     </style>
     <style>
-      .toolbox-container {
+      .summary-container p {
+        font-size: 48px;
         max-width: 600px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        padding-top: 80px;
+        line-height: 1.7;
       }
-      .toolbox-container p {
-        font-size: 32px;
-        text-align: center;
-      }
-      .toolbox-container h4 {
-        font-size: 40px;
-        padding-top: 20px;
-      }
-      .toolbox-container ul {
-        font-size: 24px;
-        padding: 20px 0px;
-        list-style-type: none;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .toolbox-container li {
-        padding: 8px;
-        margin: 8px;
-      }
-      .toolbox-container li span {
-        padding-right: 12px;
-        padding-left: 8px;
+      em {
+        color: rgb(67, 127, 255);
+        font-style: normal;
       }
     </style>
   </head>
@@ -220,21 +199,19 @@
     <div class="underline-container">
       <h2>About Me</h2>
     </div>
-    <div style="display: flex; justify-content: center; width: 90vw">
-      <div class="toolbox-container">
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        width: 90vw;
+        flex-wrap: wrap;
+      "
+    >
+      <div class="summary-container">
         <p>
-          I'm a user-experience obsessed software engineer with a penchant for
-          using the right tool for the job.
+          I'm a <em>user-experience obsessed</em> software engineer with a
+          penchant for using the <em>right tool</em> for the job.
         </p>
-        <h4>My Toolbox</h4>
-        <ul>
-          <li><span>⚡</span> Rapid Prototyping</li>
-          <li><span>🛠️</span> Technical Product Management</li>
-          <li><span>🤖</span> Machine Learning</li>
-          <li><span>🌐</span> Full Stack Web Development</li>
-          <li><span>🔩</span> Backend Development</li>
-          <li><span>📊</span> Data Science</li>
-        </ul>
       </div>
       <div class="work-history-container">
         <h3>My Experience</h3>

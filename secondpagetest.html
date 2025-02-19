@@ -1,5 +1,7 @@
 <html>
   <head>
+    <meta charset="UTF-8" />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -40,6 +42,7 @@
         background-color: black;
         font-family: Roboto, sans-serif;
         padding: 40px;
+        color: #fafafa;
       }
 
       /* Custom styles */
@@ -178,76 +181,126 @@
         border-radius: 100%;
       }
     </style>
+    <style>
+      .toolbox-container {
+        max-width: 600px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .toolbox-container p {
+        font-size: 32px;
+        text-align: center;
+      }
+      .toolbox-container h4 {
+        font-size: 40px;
+        padding-top: 20px;
+      }
+      .toolbox-container ul {
+        font-size: 24px;
+        padding: 20px 0px;
+        list-style-type: none;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .toolbox-container li {
+        padding: 8px;
+        margin: 8px;
+      }
+      .toolbox-container li span {
+        padding-right: 12px;
+        padding-left: 8px;
+      }
+    </style>
   </head>
   <body>
     <div class="underline-container">
-      <h2>My Experience</h2>
+      <h2>About Me</h2>
     </div>
-
-    <div class="work-history-container">
-      <div class="work-history-item">
-        <img src="referpro-word-logo.svg" alt="ReferPro Logo" class="logo" />
-        <p class="position">CTO</p>
-        <p class="years">March 2024 - Jan 2025</p>
-        <p class="description">
-          Led the development of a referral-based SaaS platform, growing ARR by
-          523% and securing $2.7M in funding. Managed infrastructure, improved
-          reliability, and automated workflows.
+    <div style="display: flex; justify-content: space-around; width: 90vw">
+      <div class="toolbox-container">
+        <p>
+          I'm a user-experience obsessed software engineer with a penchant for
+          using the right tool for the job.
         </p>
-      </div>
-      <div class="work-history-item-connector">
-        <div class="work-history-item-connector-ball"></div>
-      </div>
-
-      <div class="work-history-item">
-        <img src="byu-logo-white.svg" alt="BYU Logo" class="logo" />
-        <p class="position">Bachelors in Mathematics</p>
-        <p class="years">Graduated April 2024</p>
-        <ul class="description">
-          <li>Majored in **Applied & Computational Mathematics**</li>
-          <li>Minored in both **Computer Science and Entrepreneurship**</li>
-          <li>Graduated **Summa Cum Laude** with a **4.00 GPA**</li>
-          <li>Participated in the Sandbox Startup Incubator</li>
+        <h4>My toolbox</h4>
+        <ul>
+          <li><span>⚡</span> Rapid Prototyping</li>
+          <li><span>🛠️</span> Technical Product Management</li>
+          <li><span>🤖</span> Machine Learning</li>
+          <li><span>🌐</span> Full Stack Web Development</li>
+          <li><span>🔩</span> Backend Development</li>
+          <li><span>📊</span> Data Science</li>
         </ul>
       </div>
+      <div class="work-history-container">
+        <h3>My Experience</h3>
+        <div class="work-history-item">
+          <img src="referpro-word-logo.svg" alt="ReferPro Logo" class="logo" />
+          <p class="position">CTO</p>
+          <p class="years">March 2024 - Jan 2025</p>
+          <p class="description">
+            Led the development of a referral-based SaaS platform, growing ARR
+            by 523% and securing $2.7M in funding. Managed infrastructure,
+            improved reliability, and automated workflows.
+          </p>
+        </div>
+        <div class="work-history-item-connector">
+          <div class="work-history-item-connector-ball"></div>
+        </div>
 
-      <div class="work-history-item-connector">
-        <div class="work-history-item-connector-ball"></div>
-      </div>
+        <div class="work-history-item">
+          <img src="byu-logo-white.svg" alt="BYU Logo" class="logo" />
+          <p class="position">Bachelors in Mathematics</p>
+          <p class="years">Graduated April 2024</p>
+          <ul class="description">
+            <li>Majored in **Applied & Computational Mathematics**</li>
+            <li>Minored in both **Computer Science and Entrepreneurship**</li>
+            <li>Graduated **Summa Cum Laude** with a **4.00 GPA**</li>
+            <li>Participated in the Sandbox Startup Incubator</li>
+          </ul>
+        </div>
 
-      <div class="work-history-item">
-        <img src="etq-logo-medium.webp" alt="e-Telequote Logo" class="logo" />
-        <p class="position">Data Science Intern</p>
-        <p class="years">May 2022 - Sep 2022</p>
-        <p class="description">
-          Developed and deployed deep learning models that improved sales yield
-          by over 6%. Accelerated data science research by documenting the
-          company’s internal Python library and implementing the first automatic
-          CI/CD pipeline.
-        </p>
-      </div>
-      <div class="work-history-item-connector">
-        <div class="work-history-item-connector-ball"></div>
-      </div>
+        <div class="work-history-item-connector">
+          <div class="work-history-item-connector-ball"></div>
+        </div>
 
-      <div class="work-history-item fhtl-work-history-item">
-        <img
-          src="FHTL-Logo.svg"
-          alt="Family History Technology Lab Logo"
-          class="logo"
-        />
-        <h4>Family History Technology Lab</h4>
-        <p class="position">Project Manager</p>
-        <p class="years">June 2021 - May 2022</p>
-        <p class="description">
-          Managed a team of 17 developers across 8 projects spanning web,
-          mobile, and data science. Spearheaded the development of a large-scale
-          data pipeline to process and distribute over **7.5 million**
-          handwriting recognition samples for AI training. Led research efforts
-          that resulted in **two published papers** on accelerating handwriting
-          recognition model training, helping advance the field of machine
-          learning in historical document digitization.
-        </p>
+        <div class="work-history-item">
+          <img src="etq-logo-medium.webp" alt="e-Telequote Logo" class="logo" />
+          <p class="position">Data Science Intern</p>
+          <p class="years">May 2022 - Sep 2022</p>
+          <p class="description">
+            Developed and deployed deep learning models that improved sales
+            yield by over 6%. Accelerated data science research by documenting
+            the company’s internal Python library and implementing the first
+            automatic CI/CD pipeline.
+          </p>
+        </div>
+        <div class="work-history-item-connector">
+          <div class="work-history-item-connector-ball"></div>
+        </div>
+
+        <div class="work-history-item fhtl-work-history-item">
+          <img
+            src="FHTL-Logo.svg"
+            alt="Family History Technology Lab Logo"
+            class="logo"
+          />
+          <h4>Family History Technology Lab</h4>
+          <p class="position">Project Manager</p>
+          <p class="years">June 2021 - May 2022</p>
+          <p class="description">
+            Managed a team of 17 developers across 8 projects spanning web,
+            mobile, and data science. Spearheaded the development of a
+            large-scale data pipeline to process and distribute over **7.5
+            million** handwriting recognition samples for AI training. Led
+            research efforts that resulted in **two published papers** on
+            accelerating handwriting recognition model training, helping advance
+            the field of machine learning in historical document digitization.
+          </p>
+        </div>
       </div>
     </div>
   </body>

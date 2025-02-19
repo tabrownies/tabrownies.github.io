@@ -142,6 +142,19 @@
         font-size: 14px;
         line-height: 1.7; /* Slightly increased */
         margin-top: 10px;
+
+        /* ul specific */
+        list-style-type: none;
+        padding-left: 0;
+      }
+      .work-history-item li {
+        padding-bottom: 4px;
+      }
+      .work-history-item li::before {
+        content: "-";
+        color: rgb(67, 127, 255);
+        font-weight: 1000;
+        padding-right: 8px;
       }
 
       .fhtl-work-history-item h4 {
@@ -191,10 +204,8 @@
         <p class="position">Bachelors in Mathematics</p>
         <p class="years">Graduated April 2024</p>
         <ul class="description">
-          <li>
-            Majored in **Applied & Computational Mathematics** with minors in
-            both **Computer Science and Entrepreneurship**
-          </li>
+          <li>Majored in **Applied & Computational Mathematics**</li>
+          <li>Minored in both **Computer Science and Entrepreneurship**</li>
           <li>Graduated **Summa Cum Laude** with a **4.00 GPA**</li>
           <li>Participated in the Sandbox Startup Incubator</li>
         </ul>

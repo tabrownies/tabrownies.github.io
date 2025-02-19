@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        font: inherit;
+      }
+
+      html {
+        color-scheme: dark light;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      img,
+      picture,
+      SVG,
+      video {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Custom styles */
+
+      body {
+        background-color: black;
+      }
+
+      .underline-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      h2 {
+        font-family: Roboto, sans-serif;
+        font-size: 60px;
+        padding: 20px 40px;
+        text-align: center;
+        color: #fafafa;
+        position: relative;
+        display: inline-block;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        left: 25%;
+        bottom: 20px; /* Offset to create the underline effect */
+        width: 70%;
+        height: 20px;
+        background-color: rgb(67, 127, 255);
+        border-radius: 2px;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="underline-container">
+      <h2>My Experience</h2>
+    </div>
+  </body>
+</html>

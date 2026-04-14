@@ -1,0 +1,148 @@
+---
+export const prerender = false;
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+import { HEADER_CONFIGS } from "../../data/headers";
+
+const projectsCollection = await getCollection("projects");
+
+const urlParams = Astro.url.searchParams;
+const rawTags = urlParams.get("tags");
+const parsedTags = rawTags ? rawTags.split(/[\s+]+/).filter(Boolean) : [];
+
+// Filter collection
+const filteredProjects = projectsCollection.filter((item) => {
+  if (parsedTags.length === 0) return true;
+  return parsedTags.every((t) => item.data.tags.includes(t));
+});
+
+const projects = [...filteredProjects].sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+// Find matching config
+const winningConfig = HEADER_CONFIGS.find((config) => {
+  if (config.matchTags.length === 0) return false;
+  // Ensure the exact combination of tags
+  if (config.matchTags.length !== parsedTags.length) return false;
+  return config.matchTags.every((t) => parsedTags.includes(t));
+});
+
+// Display logic (Hierarchy of Truth)
+const manualTitle = urlParams.get("title");
+const manualDesc = urlParams.get("desc");
+
+const finalTitle = manualTitle
+  ? decodeURIComponent(manualTitle)
+  : winningConfig?.title || "Projects";
+const finalDesc = manualDesc
+  ? decodeURIComponent(manualDesc)
+  : winningConfig?.description || null;
+---
+
+<MainLayout>
+  <div class="content-container">
+    <h1 class="page-title text-orange">{finalTitle}</h1>
+    {finalDesc && <p class="page-description">{finalDesc}</p>}
+    <div class="masonry-grid">
+      {
+        projects.map((project) => (
+          <a
+            href={`/projects/${project.id}`}
+            class="pillar-card projects masonry-item"
+            style="color: inherit; text-decoration: none;"
+          >
+            {project.data.cover_image && (
+              <img
+                src={project.data.cover_image}
+                alt={project.data.title}
+                class="card-img project-img"
+              />
+            )}
+            <h2 class="card-title">{project.data.title}</h2>
+            <p class="card-summary">{project.data.summary}</p>
+            <div class="cmd-cta projects mt-auto">
+              <span class="cmd-prompt">&gt;</span>{" "}
+              <span class="cmd-text">see more</span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .content-container {
+    padding: 6rem 1.5rem;
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+  }
+  @media (min-width: 768px) {
+    .content-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+  .page-title {
+    font-size: 1.875rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-mono);
+  }
+  .page-description {
+    color: #9ca3af;
+    margin-bottom: 2rem;
+    font-family: "Roboto", sans-serif;
+    max-width: 40rem;
+  }
+  .masonry-grid {
+    column-count: 1;
+    column-gap: 24px;
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    .masonry-grid {
+      column-count: 2;
+    }
+  }
+  @media (min-width: 1024px) {
+    .masonry-grid {
+      column-count: 3;
+    }
+  }
+  .masonry-item {
+    display: flex;
+    break-inside: avoid;
+    margin-bottom: 24px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .card-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 1px;
+  }
+  .project-img {
+    border: 2px solid var(--pillar2-accent);
+  }
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-mono);
+    color: white;
+  }
+  .card-summary {
+    margin-bottom: 1rem;
+    color: #d1d5db;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.875rem;
+  }
+  .mt-auto {
+    margin-top: auto;
+  }
+</style>

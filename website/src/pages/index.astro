@@ -1,0 +1,660 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+const topProjects = [...projects]
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+const blog = await getCollection("blog");
+const topBlog = [...blog]
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+---
+
+<MainLayout>
+  <!-- Section 1: The Launchpad -->
+
+  <section id="launchpad">
+    <div class="text-center flex flex-col items-center">
+      <h1
+        style="color: whitesmoke; font-size: 3rem; padding: 20px; font-weight: 400;"
+      >
+        My name is <span style="color: rgb(67, 127, 255);">Timothy.</span>
+      </h1>
+      <h2 style="color: whitesmoke; font-size: 2rem; font-weight: 400;">
+        And I like to <span style="color: rgb(67, 127, 255);">build</span> things.
+      </h2>
+    </div>
+
+    <div
+      class="absolute bottom-12 animate-pulse font-mono text-center"
+      style="color: whitesmoke;"
+    >
+      [ scroll to see more ]<br />
+      &darr;
+    </div>
+  </section>
+
+  <!-- Section 2: The Airlock (Pillars) -->
+  <section id="airlock">
+    <div class="px-6 md:px-12 max-w-7xl mx-auto w-full mb-8">
+      <h2 class="font-mono text-sm text-gray-400 opacity-60">// Who am I?</h2>
+    </div>
+    <!-- Grid -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12 max-w-7xl mx-auto w-full"
+    >
+      <!-- Career Pillar -->
+      <article class="pillar-card career">
+        <h3 class="text-3xl mb-4 uppercase tracking-widest text-blue">
+          Career
+        </h3>
+        <p class="mb-8 text-gray-300 font-mono text-sm h-16">
+          Software Engineer @ Google, Former Startup CTO.
+        </p>
+        <ul class="pillar-list font-mono text-xs space-y-4 text-gray-400">
+          <li>Valedictorian — B.S. in Applied Mathematics at BYU (2024)</li>
+          <li>Sandbox Entrepreneurship Program</li>
+          <li>Published Machine Learning Researcher</li>
+        </ul>
+      </article>
+
+      <!-- Projects Pillar -->
+      <article class="pillar-card projects">
+        <h3 class="text-3xl mb-4 uppercase tracking-widest text-orange">
+          Projects
+        </h3>
+        <p class="mb-8 text-gray-300 font-mono text-sm h-16">
+          Lifelong tinkerer, always building something.
+        </p>
+        <ul class="pillar-list font-mono text-xs space-y-4 text-gray-400">
+          <li>Web Development</li>
+          <li>Data Science / Machine Learning</li>
+          <li>Hardware Hacking</li>
+          <li>Budget Ford Maverick Mods</li>
+        </ul>
+      </article>
+
+      <!-- Adventures Pillar -->
+      <article class="pillar-card adventures">
+        <h3 class="text-3xl mb-4 uppercase tracking-widest text-green">
+          Adventures
+        </h3>
+        <p class="mb-8 text-gray-300 font-mono text-sm h-16">
+          Exploring the world (and universe) to its fullest.
+        </p>
+        <ul class="pillar-list font-mono text-xs space-y-4 text-gray-400">
+          <li>Satellite Launches (and Landings)</li>
+          <li>Celestial Events</li>
+          <li>Historic Scientific Landmarks</li>
+          <li>Natural Terrestrial Wonders</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Section 3: Mission Control -->
+  <section id="mission-control">
+    <div class="px-6 md:px-12 max-w-7xl mx-auto w-full">
+      <div class="telemetry-glass-container">
+        <!-- Left Column: Projects Feed -->
+        <div class="telemetry-column">
+          <h3 class="telemetry-header text-orange">[ Recent Projects ]</h3>
+          <div class="visual-feed">
+            {
+              topProjects.slice(0, 2).map((project) => (
+                <a
+                  href={`/projects/${project.id}`}
+                  class="visual-card project-card"
+                >
+                  <img
+                    src={project.data.cover_image}
+                    alt={project.data.title}
+                    class="visual-image"
+                  />
+                  <div class="visual-overlay">
+                    <div>
+                      <div class="telemetry-date">
+                        [{project.data.date.toISOString().split("T")[0]}]
+                      </div>
+                      <div class="telemetry-title">{project.data.title}</div>
+                    </div>
+                    <span class="telemetry-arrow">&rarr;</span>
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Telemetry Center Gutter -->
+        <div class="telemetry-divider"></div>
+
+        <!-- Right Column: Adventures Feed -->
+        <div class="telemetry-column adventures-column">
+          <h3 class="telemetry-header text-green">[ Latest Adventures ]</h3>
+          <div class="visual-feed">
+            {
+              topBlog.slice(0, 2).map((post) => (
+                <a href={`/blog/${post.id}`} class="visual-card blog-card">
+                  <img
+                    src={post.data.cover_image}
+                    alt={post.data.title}
+                    class="visual-image"
+                  />
+                  <div class="visual-overlay">
+                    <div>
+                      <div class="telemetry-date">
+                        [{post.data.date.toISOString().split("T")[0]}]
+                      </div>
+                      <div class="telemetry-title">{post.data.title}</div>
+                    </div>
+                    <span class="telemetry-arrow">&rarr;</span>
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Directory Traversal Bottom Links -->
+      <div
+        class="flex flex-col md:flex-row justify-center items-center gap-8 pb-4"
+        style="margin-top: 4rem;"
+      >
+        <a href="/projects" class="cmd-cta projects">
+          <span class="cmd-prompt">&gt;</span>
+          <span class="cmd-text">view all projects</span>
+        </a>
+        <a href="/blog" class="cmd-cta adventures">
+          <span class="cmd-prompt">&gt;</span>
+          <span class="cmd-text">read adventure logs</span>
+        </a>
+        <a href="/resume" class="cmd-cta career">
+          <span class="cmd-prompt">&gt;</span>
+          <span class="cmd-text">download resume</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  section {
+    min-height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    padding: 6rem 0;
+  }
+
+  /* Utilities */
+  .pillar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .pillar-list li {
+    display: flex;
+    gap: 12px;
+  }
+  .pillar-list li::before {
+    content: ">";
+  }
+
+  .h-screen {
+    min-height: 100vh;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .flex {
+    display: flex;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .flex-row {
+    flex-direction: row;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .relative {
+    position: relative;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  .text-5xl {
+    font-size: 3rem;
+  }
+  .text-7xl {
+    font-size: 4.5rem;
+  }
+  .text-3xl {
+    font-size: 1.875rem;
+  }
+  .text-xl {
+    font-size: 1.25rem;
+  }
+  .text-sm {
+    font-size: 0.875rem;
+  }
+  .text-xs {
+    font-size: 0.75rem;
+  }
+
+  .font-black {
+    font-weight: 900;
+  }
+  .font-medium {
+    font-weight: 500;
+  }
+
+  .text-gray-300 {
+    color: #d1d5db;
+  }
+  .text-gray-400 {
+    color: #9ca3af;
+  }
+  .text-gray-500 {
+    color: #6b7280;
+  }
+  .text-gray-600 {
+    color: #4b5563;
+  }
+  .text-gray-700 {
+    color: #374151;
+  }
+  .bg-gray-500 {
+    background-color: #6b7280;
+  }
+  .bg-gray-800 {
+    background-color: #1f2937;
+  }
+
+  .bg-transparent {
+    background-color: transparent;
+  }
+  .bg-space-dark {
+    background-color: #0a0a0a;
+  }
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+  .mb-24 {
+    margin-bottom: 6rem;
+  }
+  .mb-32 {
+    margin-bottom: 8rem;
+  }
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+  .pb-12 {
+    padding-bottom: 3rem;
+  }
+  .py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .pl-6 {
+    padding-left: 1.5rem;
+  }
+
+  .bottom-12 {
+    bottom: 3rem;
+  }
+  .-left-\[5px\] {
+    left: -5px;
+  }
+  .top-1 {
+    top: 0.25rem;
+  }
+
+  .w-2 {
+    width: 0.5rem;
+  }
+  .w-3 {
+    width: 0.75rem;
+  }
+  .h-2 {
+    height: 0.5rem;
+  }
+  .h-3 {
+    height: 0.75rem;
+  }
+  .h-16 {
+    height: 4rem;
+  }
+  .h-64 {
+    height: 16rem;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .h-full {
+    height: 100%;
+  }
+
+  .rounded-full {
+    border-radius: 9999px;
+  }
+  .border-l-2 {
+    border-left-width: 2px;
+  }
+  .border-solid {
+    border-style: solid;
+    border-color: #374151;
+  }
+
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  .space-y-8 > * + * {
+    margin-top: 2rem;
+  }
+  .gap-8 {
+    gap: 2rem;
+  }
+  .gap-4 {
+    gap: 1rem;
+  }
+
+  .tracking-widest {
+    letter-spacing: 0.1em;
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .max-w-7xl {
+    max-width: 80rem;
+  }
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grid {
+    display: grid;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    .md\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .md\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .md\:px-12 {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    .md\:text-7xl {
+      font-size: 4.5rem;
+    }
+    .md\:text-5xl {
+      font-size: 3rem;
+    }
+    .md\:flex-row {
+      flex-direction: row;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .lg\:col-span-2 {
+      grid-column: span 2 / span 2;
+    }
+    .lg\:col-span-3 {
+      grid-column: span 3 / span 3;
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Telemetry Feed Section */
+  .telemetry-glass-container {
+    background: rgba(10, 15, 30, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    transition: box-shadow 0.4s ease;
+  }
+
+  .telemetry-divider {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #555 10%,
+      #555 90%,
+      transparent
+    );
+    margin: 1.5rem 0;
+  }
+
+  .telemetry-header {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  /* Visual Media Feed Polish */
+  .visual-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .visual-card {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.4s ease;
+  }
+
+  .visual-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+  }
+
+  .visual-card.project-card {
+    border: 1px solid rgba(255, 127, 67, 0.3);
+  }
+
+  .visual-card.blog-card {
+    border: 1px solid rgba(67, 255, 127, 0.3);
+  }
+
+  .visual-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+  }
+
+  .telemetry-arrow {
+    opacity: 0.3;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+
+  .telemetry-date {
+    opacity: 0.5;
+    font-weight: 300;
+    white-space: nowrap;
+    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    margin-bottom: 4px;
+  }
+
+  .telemetry-title {
+    opacity: 1;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Desktop Specific Polish */
+  @media (min-width: 768px) {
+    .telemetry-glass-container {
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1.5rem;
+    }
+    .telemetry-divider {
+      display: block;
+      width: 2px;
+      height: auto;
+      margin: 0;
+      justify-self: center;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        #555 10%,
+        #555 90%,
+        transparent
+      );
+    }
+    .visual-overlay {
+      padding: 1rem 1.5rem;
+      height: 4.5rem;
+    }
+    .telemetry-date {
+      font-size: 0.8rem;
+    }
+    .telemetry-title {
+      font-size: 1rem;
+    }
+    .telemetry-arrow {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .telemetry-glass-container {
+      grid-template-columns: 5fr auto 3fr;
+      gap: 3rem;
+      padding: 3.5rem 3rem 3rem;
+    }
+
+    .visual-card {
+      height: 240px;
+    }
+
+    .telemetry-title {
+      letter-spacing: 0.05em;
+    }
+  }
+
+  /* Animations & Interactivity */
+  .visual-card:hover .visual-image {
+    transform: scale(1.03);
+  }
+
+  .visual-card:hover .telemetry-arrow {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+
+  .visual-card.project-card:hover {
+    border-color: rgba(255, 127, 67, 1);
+    box-shadow: 0 0 16px rgba(255, 127, 67, 0.4);
+  }
+
+  .visual-card.blog-card:hover {
+    border-color: rgba(67, 255, 127, 1);
+    box-shadow: 0 0 16px rgba(67, 255, 127, 0.4);
+  }
+</style>

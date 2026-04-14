@@ -1,0 +1,149 @@
+---
+import "../styles/global.css";
+import Starfield from "../components/Starfield.astro";
+
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === "/";
+const is404 = currentPath === "/404" || currentPath === "/404.html";
+const isProjects = currentPath.startsWith("/projects");
+const isBlog = currentPath.startsWith("/blog");
+const isResume = currentPath.startsWith("/resume");
+
+const showStarfield = isHome || is404;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timothy | Builder</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  </head>
+  <body style={!showStarfield ? "background-color: #050505;" : ""}>
+    {showStarfield && <Starfield />}
+
+    <!-- Mouse Follower -->
+    <div id="mouse-glow"></div>
+
+    <!-- Glassmorphism Persistent Header -->
+    <header class="glass-header">
+      <span class="mobile-bracket">[</span>
+      <a href="/" class={isHome ? "active" : ""}>home</a>
+      <span class="slash">/</span>
+      <a href="/projects" class={isProjects ? "active" : ""}>projects</a>
+      <span class="slash">/</span>
+      <a href="/blog" class={isBlog ? "active" : ""}>blog</a>
+      <span class="slash">/</span>
+      <a href="/resume" class={isResume ? "active" : ""}>resume</a>
+      <span class="mobile-bracket">]</span>
+    </header>
+
+    <!-- Main Content Slot -->
+    <main class={isHome ? "snap-y" : ""}>
+      <slot />
+
+      <!-- Spaceship HUD / Command Bar Footer -->
+      <footer class="hud-footer">
+        <div class="hud-left">
+          <span class="status-indicator"></span>
+          <span id="mission-clock">T-MINUS 00:00:00</span>
+        </div>
+
+        <div class="hud-center">
+          <span>LOC: LOS ANGELES, CA</span>
+          <span>|</span>
+          <span>SYS: ONLINE</span>
+        </div>
+
+        <div class="hud-right">
+          <a href="https://github.com/tabrownies" target="_blank">[ github ]</a>
+          <a href="https://www.youtube.com/@timothybuilds" target="_blank"
+            >[ youtube ]</a
+          >
+          <a
+            href="https://www.linkedin.com/in/timothy-a-brown77/"
+            target="_blank">[ linkedin ]</a
+          >
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      // Mission Clock Logic
+      function updateClock() {
+        const clockElem = document.getElementById("mission-clock");
+        if (!clockElem) return;
+
+        const now = new Date();
+        const h = String(now.getHours()).padStart(2, "0");
+        const m = String(now.getMinutes()).padStart(2, "0");
+        const s = String(now.getSeconds()).padStart(2, "0");
+        const ms = String(now.getMilliseconds())
+          .padStart(3, "0")
+          .substring(0, 2);
+
+        clockElem.textContent = `T+ ${h}:${m}:${s}:${ms}`;
+      }
+
+      setInterval(updateClock, 50);
+      updateClock();
+
+      // Mouse Follower Logic
+      const mouseGlow = document.getElementById("mouse-glow");
+      window.addEventListener("mousemove", (e) => {
+        if (mouseGlow) {
+          mouseGlow.style.opacity = "1";
+          mouseGlow.style.left = e.clientX + "px";
+          mouseGlow.style.top = e.clientY + "px";
+        }
+      });
+
+      // Fade out when cursor leaves window
+      window.addEventListener("mouseout", (e) => {
+        if (mouseGlow && e.relatedTarget === null) {
+          mouseGlow.style.opacity = "0";
+        }
+      });
+    </script>
+
+    <style is:global>
+      #mouse-glow {
+        position: fixed;
+        pointer-events: none;
+        z-index: -5;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(67, 127, 255, 0.35) 0%,
+          transparent 70%
+        );
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+      main {
+        height: 100vh;
+        overflow-y: scroll;
+        scrollbar-width: none; /* Hide scrollbar for a cleaner look */
+      }
+      main.snap-y {
+        scroll-snap-type: y mandatory;
+      }
+      main::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </body>
+</html>

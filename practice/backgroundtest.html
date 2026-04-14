@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <!-- roboto google font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        font: inherit;
+      }
+
+      html {
+        color-scheme: dark light;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      img,
+      picture,
+      SVG,
+      video {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* custom styles */
+      @keyframes twinkleStar {
+        from,
+        to {
+          scale: 0.75;
+        }
+        50% {
+          scale: 1.25;
+        }
+      }
+      span {
+        animation: twinkleStar 1s infinite;
+        animation-delay: calc(2s * var(--random));
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(0, 0, 0)">
+    <div
+      id="background"
+      style="
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        position: absolute;
+        padding: 0px;
+        margin: 0px;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+      "
+    ></div>
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        z-index: 1;
+      "
+    >
+      <h1
+        style="
+          color: whitesmoke;
+          font-family: Roboto;
+          font-size: 3rem;
+          padding: 20px;
+        "
+      >
+        My name is <span style="color: rgb(67, 127, 255)">Timothy.</span>
+      </h1>
+      <h2 style="color: whitesmoke; font-family: Roboto; font-size: 2rem">
+        And I like to
+        <span style="color: rgb(67, 127, 255)">build</span> things.
+      </h2>
+      <div
+        style="
+          padding: 8px 32px;
+          border: 2px solid rgb(67, 127, 255);
+          border-radius: 2px;
+          margin: 32px;
+          color: rgb(67, 127, 255);
+          font-family: Roboto;
+          font-size: 1.5rem;
+          background-color: black;
+        "
+      >
+        See My Work
+      </div>
+    </div>
+  </body>
+</html>

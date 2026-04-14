@@ -1,15 +1,15 @@
 ---
-import '../styles/global.css';
-import Starfield from '../components/Starfield.astro';
+import "../styles/global.css";
+import Starfield from "../components/Starfield.astro";
 
 const currentPath = Astro.url.pathname;
-const isHome = currentPath === '/';
-const isProjects = currentPath.startsWith('/projects');
-const isBlog = currentPath.startsWith('/blog');
-const isResume = currentPath.startsWith('/resume');
+const isHome = currentPath === "/";
+const isProjects = currentPath.startsWith("/projects");
+const isBlog = currentPath.startsWith("/blog");
+const isResume = currentPath.startsWith("/resume");
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,11 +18,15 @@ const isResume = currentPath.startsWith('/resume');
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
   </head>
   <body>
     <Starfield />
-    
+
     <!-- Mouse Follower -->
     <div id="mouse-glow"></div>
 
@@ -49,13 +53,13 @@ const isResume = currentPath.startsWith('/resume');
           <span class="status-indicator"></span>
           <span id="mission-clock">T-MINUS 00:00:00</span>
         </div>
-        
+
         <div class="hud-center">
           <span>LOC: LOS ANGELES, CA</span>
           <span>|</span>
           <span>SYS: ONLINE</span>
         </div>
-        
+
         <div class="hud-right">
           <a href="#">[ github ]</a>
           <a href="#">[ youtube ]</a>
@@ -66,39 +70,41 @@ const isResume = currentPath.startsWith('/resume');
     <script>
       // Mission Clock Logic
       function updateClock() {
-        const clockElem = document.getElementById('mission-clock');
+        const clockElem = document.getElementById("mission-clock");
         if (!clockElem) return;
-        
+
         const now = new Date();
-        const h = String(now.getHours()).padStart(2, '0');
-        const m = String(now.getMinutes()).padStart(2, '0');
-        const s = String(now.getSeconds()).padStart(2, '0');
-        const ms = String(now.getMilliseconds()).padStart(3, '0').substring(0, 2);
-        
+        const h = String(now.getHours()).padStart(2, "0");
+        const m = String(now.getMinutes()).padStart(2, "0");
+        const s = String(now.getSeconds()).padStart(2, "0");
+        const ms = String(now.getMilliseconds())
+          .padStart(3, "0")
+          .substring(0, 2);
+
         clockElem.textContent = `T+ ${h}:${m}:${s}:${ms}`;
       }
-      
+
       setInterval(updateClock, 50);
       updateClock();
 
       // Mouse Follower Logic
-      const mouseGlow = document.getElementById('mouse-glow');
-      window.addEventListener('mousemove', (e) => {
+      const mouseGlow = document.getElementById("mouse-glow");
+      window.addEventListener("mousemove", (e) => {
         if (mouseGlow) {
-          mouseGlow.style.opacity = '1';
-          mouseGlow.style.left = e.clientX + 'px';
-          mouseGlow.style.top = e.clientY + 'px';
+          mouseGlow.style.opacity = "1";
+          mouseGlow.style.left = e.clientX + "px";
+          mouseGlow.style.top = e.clientY + "px";
         }
       });
 
       // Fade out when cursor leaves window
-      window.addEventListener('mouseout', (e) => {
+      window.addEventListener("mouseout", (e) => {
         if (mouseGlow && e.relatedTarget === null) {
-          mouseGlow.style.opacity = '0';
+          mouseGlow.style.opacity = "0";
         }
       });
     </script>
-    
+
     <style is:global>
       #mouse-glow {
         position: fixed;
@@ -107,7 +113,11 @@ const isResume = currentPath.startsWith('/resume');
         width: 400px;
         height: 400px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(67, 127, 255, 0.35) 0%, transparent 70%);
+        background: radial-gradient(
+          circle,
+          rgba(67, 127, 255, 0.35) 0%,
+          transparent 70%
+        );
         transform: translate(-50%, -50%);
         transition: opacity 0.3s ease;
         left: 0;
@@ -120,8 +130,8 @@ const isResume = currentPath.startsWith('/resume');
         scroll-snap-type: y mandatory;
         scrollbar-width: none; /* Hide scrollbar for a cleaner look */
       }
-      main::-webkit-scrollbar { 
-        display: none; 
+      main::-webkit-scrollbar {
+        display: none;
       }
     </style>
   </body>

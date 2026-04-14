@@ -12,16 +12,19 @@
         let span = document.createElement("span");
         let starSize = Math.random() > 0.5 ? "3px" : "2px";
         
+        let y = Math.random() * window.innerHeight;
+        
         span.style.setProperty("--random", Math.random().toString());
         span.style.width = "2px";
         span.style.height = starSize;
         span.style.position = "absolute";
         span.style.backgroundColor = "white";
         span.style.opacity = Math.min(Math.random() + 0.25, 1).toString();
-        span.style.left = Math.random() * window.innerWidth + "px";
-        span.style.top = Math.random() * window.innerHeight + "px";
+        span.style.left = (Math.random() * window.innerWidth) + "px";
+        span.style.top = y + "px";
         span.style.transform = "rotate(" + Math.random() * 360 + "deg)";
         span.className = "twinkle";
+        span.dataset.y = y.toString();
         
         container.appendChild(span);
       }
@@ -36,6 +39,22 @@
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(generateStars, 200);
     });
+
+    // Continuous slow drift animation
+    function animateStars() {
+      const spans = container.getElementsByTagName("span");
+      for (let i = 0; i < spans.length; i++) {
+        let span = spans[i];
+        let y = parseFloat(span.dataset.y) + 0.2;
+        if (y > window.innerHeight) {
+          y = 0;
+        }
+        span.dataset.y = y.toString();
+        span.style.top = y + "px";
+      }
+      requestAnimationFrame(animateStars);
+    }
+    requestAnimationFrame(animateStars);
   }
   
   // Astro view transitions or standard load
@@ -50,7 +69,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -2;
+    z-index: -10;
     pointer-events: none;
   }
 </style>

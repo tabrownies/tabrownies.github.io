@@ -1,26 +1,17 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Starfield from "../components/Starfield.astro";
 ---
 
 <MainLayout>
-  <Starfield />
-
   <!-- Section 1: The Launchpad -->
-  <section
-    id="launchpad"
-    class="h-screen flex flex-col justify-center items-center relative bg-transparent"
-  >
+
+  <section id="launchpad">
     <div class="text-center">
       <h1 class="text-5xl md:text-7xl mb-4 font-black">
-        My name is <span class="text-blue twinkle" style="--random: 0.1"
-          >Timothy.</span
-        >
+        My name is <span class="text-blue" style="--random: 0.1">Timothy.</span>
       </h1>
       <h2 class="text-3xl md:text-5xl font-medium text-gray-300">
-        And I like to <span class="text-blue twinkle" style="--random: 0.8"
-          >build</span
-        > things.
+        And I like to <span class="text-blue" style="--random: 0.8">build</span> things.
       </h2>
     </div>
 
@@ -33,12 +24,11 @@ import Starfield from "../components/Starfield.astro";
   </section>
 
   <!-- Section 2: The Airlock (Pillars) -->
-  <section
-    id="airlock"
-    class="min-h-screen py-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col justify-center relative z-10 bg-transparent"
-  >
+  <section id="airlock">
     <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12 max-w-7xl mx-auto w-full"
+    >
       <!-- Career Pillar -->
       <article class="pillar-card career">
         <h3 class="text-3xl mb-4 uppercase tracking-widest text-blue">
@@ -87,14 +77,15 @@ import Starfield from "../components/Starfield.astro";
   </section>
 
   <!-- Section 3: Mission Control -->
-  <section
-    id="mission-control"
-    class="min-h-screen py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 bg-transparent"
-  >
+  <section id="mission-control">
     <!-- Log Feed -->
-    <!-- <div class="mb-24 space-y-8 font-mono">
+    <div
+      class="mb-24 space-y-8 font-mono px-6 md:px-12 max-w-7xl mx-auto w-full"
+    >
       <div class="border-l-2 border-gray-700 border-solid pl-6 relative">
-        <span class="absolute -left-[5px] top-1 w-3 h-3 rounded-full bg-gray-500"></span>
+        <span
+          class="absolute -left-[5px] top-1 w-3 h-3 rounded-full bg-gray-500"
+        ></span>
         <div class="flex justify-between items-start">
           <h4 class="text-xl text-blue">Software Engineer @ Google</h4>
           <span class="text-xs text-gray-500">[ 2024 - PRESENT ]</span>
@@ -102,17 +93,21 @@ import Starfield from "../components/Starfield.astro";
         <p class="text-sm text-gray-400 mt-2">Smart Home optimizations.</p>
       </div>
       <div class="border-l-2 border-gray-700 border-solid pl-6 relative">
-        <span class="absolute -left-[5px] top-1 w-3 h-3 rounded-full bg-gray-500"></span>
+        <span
+          class="absolute -left-[5px] top-1 w-3 h-3 rounded-full bg-gray-500"
+        ></span>
         <div class="flex justify-between items-start">
           <h4 class="text-xl text-blue">Startup CTO</h4>
           <span class="text-xs text-gray-500">[ 2022 - 2024 ]</span>
         </div>
         <p class="text-sm text-gray-400 mt-2">Architecture and scaling.</p>
       </div>
-    </div> -->
+    </div>
 
     <!-- Mosaic Gallery -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-32">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-32 px-6 md:px-12 max-w-7xl mx-auto w-full"
+    >
       <!-- Image 1 -->
       <div class="mosaic-frame projects h-64">
         <div class="rgb-tag">SYS://EV-MOD</div>
@@ -151,8 +146,18 @@ import Starfield from "../components/Starfield.astro";
 
 <style>
   section {
+    min-height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    z-index: 10;
+    z-index: 1;
+    background-color: transparent;
+    padding: 6rem 0;
   }
 
   /* Utilities */

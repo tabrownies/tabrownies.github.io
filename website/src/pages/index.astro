@@ -6,17 +6,18 @@ import MainLayout from "../layouts/MainLayout.astro";
   <!-- Section 1: The Launchpad -->
 
   <section id="launchpad">
-    <div class="text-center">
-      <h1 class="text-5xl md:text-7xl mb-4 font-black">
-        My name is <span class="text-blue" style="--random: 0.1">Timothy.</span>
+    <div class="text-center flex flex-col items-center">
+      <h1 style="color: whitesmoke; font-size: 3rem; padding: 20px; font-weight: 400;">
+        My name is <span style="color: rgb(67, 127, 255);">Timothy.</span>
       </h1>
-      <h2 class="text-3xl md:text-5xl font-medium text-gray-300">
-        And I like to <span class="text-blue" style="--random: 0.8">build</span> things.
+      <h2 style="color: whitesmoke; font-size: 2rem; font-weight: 400;">
+        And I like to <span style="color: rgb(67, 127, 255);">build</span> things.
       </h2>
     </div>
 
     <div
-      class="absolute bottom-12 animate-pulse font-mono text-gray-500 text-center"
+      class="absolute bottom-12 animate-pulse font-mono text-center"
+      style="color: whitesmoke;"
     >
       [ scroll to see more ]<br />
       &darr;
@@ -25,6 +26,9 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   <!-- Section 2: The Airlock (Pillars) -->
   <section id="airlock">
+    <div class="px-6 md:px-12 max-w-7xl mx-auto w-full mb-8">
+      <h2 class="font-mono text-sm text-gray-400 opacity-60">// Who am I?</h2>
+    </div>
     <!-- Grid -->
     <div
       class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12 max-w-7xl mx-auto w-full"
@@ -78,32 +82,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   <!-- Section 3: Mission Control -->
   <section id="mission-control">
-    <!-- Log Feed -->
-    <div
-      class="mb-24 space-y-8 font-mono px-6 md:px-12 max-w-7xl mx-auto w-full"
-    >
-      <div class="border-l-2 border-gray-700 border-solid pl-6 relative">
-        <span
-          class="absolute -left-[5px] top-1 w-3 h-3 rounded-full bg-gray-500"
-        ></span>
-        <div class="flex justify-between items-start">
-          <h4 class="text-xl text-blue">Software Engineer @ Google</h4>
-          <span class="text-xs text-gray-500">[ 2024 - PRESENT ]</span>
-        </div>
-        <p class="text-sm text-gray-400 mt-2">Smart Home optimizations.</p>
-      </div>
-      <div class="border-l-2 border-gray-700 border-solid pl-6 relative">
-        <span
-          class="absolute -left-[5px] top-1 w-3 h-3 rounded-full bg-gray-500"
-        ></span>
-        <div class="flex justify-between items-start">
-          <h4 class="text-xl text-blue">Startup CTO</h4>
-          <span class="text-xs text-gray-500">[ 2022 - 2024 ]</span>
-        </div>
-        <p class="text-sm text-gray-400 mt-2">Architecture and scaling.</p>
-      </div>
-    </div>
-
     <!-- Mosaic Gallery -->
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-32 px-6 md:px-12 max-w-7xl mx-auto w-full"
@@ -135,11 +113,15 @@ import MainLayout from "../layouts/MainLayout.astro";
     <div
       class="flex flex-col md:flex-row justify-center items-center gap-8 pb-12"
     >
-      <a href="/projects" class="bracket-btn text-orange"
-        >[ open_project_archive ]</a
-      >
-      <a href="/blog" class="bracket-btn text-green">[ open_adventure_logs ]</a>
-      <a href="/resume" class="bracket-btn text-blue">[ download_full_cv ]</a>
+      <a href="/projects" class="cmd-cta projects">
+        <span class="cmd-prompt">&gt;</span> <span class="cmd-text">view all projects</span>
+      </a>
+      <a href="/blog" class="cmd-cta adventures">
+        <span class="cmd-prompt">&gt;</span> <span class="cmd-text">read adventure logs</span>
+      </a>
+      <a href="/resume" class="cmd-cta career">
+        <span class="cmd-prompt">&gt;</span> <span class="cmd-text">download resume</span>
+      </a>
     </div>
   </section>
 </MainLayout>

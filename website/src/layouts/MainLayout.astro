@@ -1,6 +1,12 @@
 ---
 import '../styles/global.css';
 import Starfield from '../components/Starfield.astro';
+
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+const isProjects = currentPath.startsWith('/projects');
+const isBlog = currentPath.startsWith('/blog');
+const isResume = currentPath.startsWith('/resume');
 ---
 
 <!DOCTYPE html>
@@ -22,35 +28,40 @@ import Starfield from '../components/Starfield.astro';
 
     <!-- Glassmorphism Persistent Header -->
     <header class="glass-header">
-      <a href="/">[ home ]</a>
-      <a href="/projects">[ projects ]</a>
-      <a href="/blog">[ blog ]</a>
-      <a href="/resume">[ resume ]</a>
+      <span class="mobile-bracket">[</span>
+      <a href="/" class={isHome ? "active" : ""}>home</a>
+      <span class="slash">/</span>
+      <a href="/projects" class={isProjects ? "active" : ""}>projects</a>
+      <span class="slash">/</span>
+      <a href="/blog" class={isBlog ? "active" : ""}>blog</a>
+      <span class="slash">/</span>
+      <a href="/resume" class={isResume ? "active" : ""}>resume</a>
+      <span class="mobile-bracket">]</span>
     </header>
 
     <!-- Main Content Slot -->
     <main>
       <slot />
-    </main>
 
-    <!-- Spaceship HUD / Command Bar Footer -->
-    <footer class="hud-footer">
-      <div class="hud-left">
-        <span class="status-indicator"></span>
-        <span id="mission-clock">T-MINUS 00:00:00</span>
-      </div>
-      
-      <div class="hud-center">
-        <span>LOC: LOS ANGELES, CA</span>
-        <span>|</span>
-        <span>SYS: ONLINE</span>
-      </div>
-      
-      <div class="hud-right">
-        <a href="#" class="bracket-btn" style="font-size: 0.8rem;">[ github ]</a>
-        <a href="#" class="bracket-btn" style="font-size: 0.8rem;">[ youtube ]</a>
-      </div>
-    </footer>
+      <!-- Spaceship HUD / Command Bar Footer -->
+      <footer class="hud-footer">
+        <div class="hud-left">
+          <span class="status-indicator"></span>
+          <span id="mission-clock">T-MINUS 00:00:00</span>
+        </div>
+        
+        <div class="hud-center">
+          <span>LOC: LOS ANGELES, CA</span>
+          <span>|</span>
+          <span>SYS: ONLINE</span>
+        </div>
+        
+        <div class="hud-right">
+          <a href="#">[ github ]</a>
+          <a href="#">[ youtube ]</a>
+        </div>
+      </footer>
+    </main>
 
     <script>
       // Mission Clock Logic

@@ -77,33 +77,74 @@ h1, h2, h3, h4, h5, h6 {
 /* Glassmorphism Header */
 .glass-header {
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: clamp(0.5rem, 2vw, 1rem) clamp(0.5rem, 3vw, 2rem);
+  padding: 10px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(0.5rem, 2vw, 2rem);
+  gap: 4px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  text-transform: lowercase;
 }
 
 .glass-header a {
-  color: var(--text-primary);
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: clamp(0.6rem, 2.5vw, 0.9rem);
-  text-transform: lowercase;
   transition: color 0.3s ease;
   white-space: nowrap;
 }
 
+.glass-header a.active {
+  color: #fff;
+}
+
 .glass-header a:hover {
   color: var(--pillar1-accent);
+}
+
+.glass-header .slash {
+  opacity: 0.4;
+  margin: 0 4px;
+}
+
+.glass-header .mobile-bracket {
+  opacity: 0.6;
+}
+
+/* Restore Desktop Layout Matrix */
+@media (min-width: 768px) {
+  .glass-header {
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(0.5rem, 3vw, 2rem);
+    gap: clamp(0.5rem, 2vw, 2rem);
+    font-size: clamp(0.6rem, 2.5vw, 0.9rem);
+  }
+  .glass-header .slash {
+    display: none;
+  }
+  .glass-header .mobile-bracket {
+    display: none;
+  }
+  .glass-header a {
+    color: var(--text-primary);
+  }
+  .glass-header a.active {
+    color: var(--text-primary);
+  }
+  .glass-header a::before {
+    content: "[ ";
+  }
+  .glass-header a::after {
+    content: " ]";
+  }
 }
 
 /* HUD Footer */
@@ -118,6 +159,18 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.8rem;
   text-transform: uppercase;
   color: #888;
+  scroll-snap-align: end;
+}
+
+@media (max-width: 768px) {
+  .hud-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .hud-left { order: 3; }
+  .hud-center { order: 2; margin: 0.5rem 0; }
+  .hud-right { order: 1; }
 }
 
 .hud-footer .status-indicator {
@@ -129,6 +182,18 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 8px;
   box-shadow: 0 0 8px var(--pillar3-accent);
   animation: pulse-dot 2s infinite;
+}
+
+.hud-footer a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  transition: color 0.3s ease;
+  margin-left: 1rem;
+}
+
+.hud-footer a:hover {
+  color: var(--pillar1-accent);
 }
 
 @keyframes pulse-dot {
@@ -261,19 +326,43 @@ h1, h2, h3, h4, h5, h6 {
 .mosaic-frame.projects .rgb-tag { border-color: var(--pillar2-accent); color: var(--pillar2-accent); }
 .mosaic-frame.adventures .rgb-tag { border-color: var(--pillar3-accent); color: var(--pillar3-accent); }
 
-/* Bracket Action Buttons */
-.bracket-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-primary);
+/* Terminal CTA Buttons */
+.cmd-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-mono);
   font-size: 1.1rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
-.bracket-btn:hover {
-  color: var(--pillar1-accent);
-  text-shadow: 0 0 8px rgba(67, 127, 255, 0.5);
+
+.cmd-cta .cmd-prompt {
+  font-weight: 700;
+  opacity: 1;
+}
+
+.cmd-cta .cmd-text {
+  text-transform: lowercase;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+}
+
+/* Hover States & Color Mapping */
+.cmd-cta.projects:hover { color: var(--pillar2-accent); }
+.cmd-cta.adventures:hover { color: var(--pillar3-accent); }
+.cmd-cta.career:hover { color: var(--pillar1-accent); }
+
+.cmd-cta:hover .cmd-text {
+  transform: translateX(8px);
+}
+
+@keyframes blink-cmd {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cmd-cta:hover .cmd-prompt {
+  animation: blink-cmd 0.5s infinite;
 }

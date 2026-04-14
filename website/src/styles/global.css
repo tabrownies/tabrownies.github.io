@@ -1,0 +1,279 @@
+:root {
+  /* Colors - Base */
+  --bg-color: #000000;
+  --text-primary: #f5f5f5; /* whitesmoke */
+  
+  /* Pillar 1: Career (Blue) */
+  --pillar1-accent: rgb(67, 127, 255);
+  --pillar1-border: rgb(30, 60, 130);
+  
+  /* Pillar 2: Projects (Orange) */
+  --pillar2-accent: rgb(255, 127, 67);
+  --pillar2-border: rgb(130, 60, 30);
+  
+  /* Pillar 3: Adventures (Green) */
+  --pillar3-accent: rgb(67, 255, 127);
+  --pillar3-border: rgb(30, 130, 60);
+
+  /* Typography */
+  --font-heading: 'Roboto', sans-serif;
+  --font-mono: 'Roboto Mono', 'JetBrains Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  overflow-x: hidden;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-blue {
+  color: var(--pillar1-accent);
+}
+.text-orange {
+  color: var(--pillar2-accent);
+}
+.text-green {
+  color: var(--pillar3-accent);
+}
+
+/* Glassmorphism Header */
+.glass-header {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(0.5rem, 3vw, 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 2rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.glass-header a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: clamp(0.6rem, 2.5vw, 0.9rem);
+  text-transform: lowercase;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.glass-header a:hover {
+  color: var(--pillar1-accent);
+}
+
+/* HUD Footer */
+.hud-footer {
+  background: #050505;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.hud-footer .status-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--pillar3-accent);
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 8px var(--pillar3-accent);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Card Pillars */
+.pillar-card {
+  border: 4px solid #333;
+  border-radius: 1px;
+  padding: 2rem;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pillar-card.career { border-color: var(--pillar1-border); }
+.pillar-card.projects { border-color: var(--pillar2-border); }
+.pillar-card.adventures { border-color: var(--pillar3-border); }
+
+/* Border Pulse Animations */
+@keyframes pulse-border-career {
+  0% { border-color: var(--pillar1-border); box-shadow: 0 0 0 rgba(67, 127, 255, 0); }
+  50% { border-color: var(--pillar1-accent); box-shadow: 0 0 15px rgba(67, 127, 255, 0.3); }
+  100% { border-color: var(--pillar1-border); box-shadow: 0 0 0 rgba(67, 127, 255, 0); }
+}
+
+@keyframes pulse-border-projects {
+  0% { border-color: var(--pillar2-border); box-shadow: 0 0 0 rgba(255, 127, 67, 0); }
+  50% { border-color: var(--pillar2-accent); box-shadow: 0 0 15px rgba(255, 127, 67, 0.3); }
+  100% { border-color: var(--pillar2-border); box-shadow: 0 0 0 rgba(255, 127, 67, 0); }
+}
+
+@keyframes pulse-border-adventures {
+  0% { border-color: var(--pillar3-border); box-shadow: 0 0 0 rgba(67, 255, 127, 0); }
+  50% { border-color: var(--pillar3-accent); box-shadow: 0 0 15px rgba(67, 255, 127, 0.3); }
+  100% { border-color: var(--pillar3-border); box-shadow: 0 0 0 rgba(67, 255, 127, 0); }
+}
+
+.pillar-card.career:hover { animation: pulse-border-career 2s infinite; transform: translateY(-4px); }
+.pillar-card.projects:hover { animation: pulse-border-projects 2s infinite; transform: translateY(-4px); }
+.pillar-card.adventures:hover { animation: pulse-border-adventures 2s infinite; transform: translateY(-4px); }
+
+/* Twinkling Star Animation for Spans */
+@keyframes twinkleStar {
+  from, to { 
+    opacity: 0.7; 
+  }
+  50% { 
+    opacity: 1; 
+  }
+}
+
+.twinkle {
+  display: inline-block;
+  animation: twinkleStar 1s infinite;
+  animation-delay: calc(2s * var(--random, 0));
+}
+
+/* Mosaic Image Frames & CRT */
+.mosaic-frame {
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #333;
+  border-radius: 1px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.mosaic-frame.career { border-color: var(--pillar1-border); }
+.mosaic-frame.projects { border-color: var(--pillar2-border); }
+.mosaic-frame.adventures { border-color: var(--pillar3-border); }
+
+.mosaic-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(80%) contrast(1.2);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.mosaic-frame::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.mosaic-frame:hover.career { animation: pulse-border-career 2s infinite; }
+.mosaic-frame:hover.projects { animation: pulse-border-projects 2s infinite; }
+.mosaic-frame:hover.adventures { animation: pulse-border-adventures 2s infinite; }
+
+.mosaic-frame:hover img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.05);
+}
+
+.mosaic-frame:hover::after {
+  opacity: 0.3;
+}
+
+/* RGB Tag */
+.rgb-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  z-index: 2;
+}
+.mosaic-frame.career .rgb-tag { border-color: var(--pillar1-accent); color: var(--pillar1-accent); }
+.mosaic-frame.projects .rgb-tag { border-color: var(--pillar2-accent); color: var(--pillar2-accent); }
+.mosaic-frame.adventures .rgb-tag { border-color: var(--pillar3-accent); color: var(--pillar3-accent); }
+
+/* Bracket Action Buttons */
+.bracket-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-decoration: none;
+}
+.bracket-btn:hover {
+  color: var(--pillar1-accent);
+  text-shadow: 0 0 8px rgba(67, 127, 255, 0.5);
+}

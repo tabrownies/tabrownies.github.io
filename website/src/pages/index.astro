@@ -1,0 +1,416 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Starfield from "../components/Starfield.astro";
+---
+
+<MainLayout>
+  <Starfield />
+
+  <!-- Section 1: The Launchpad -->
+  <section
+    id="launchpad"
+    class="h-screen flex flex-col justify-center items-center relative bg-transparent"
+  >
+    <div class="text-center">
+      <h1 class="text-5xl md:text-7xl mb-4 font-black">
+        My name is <span class="text-blue twinkle" style="--random: 0.1"
+          >Timothy.</span
+        >
+      </h1>
+      <h2 class="text-3xl md:text-5xl font-medium text-gray-300">
+        And I like to <span class="text-blue twinkle" style="--random: 0.8"
+          >build</span
+        > things.
+      </h2>
+    </div>
+
+    <div
+      class="absolute bottom-12 animate-pulse font-mono text-gray-500 text-center"
+    >
+      [ scroll to see more ]<br />
+      &darr;
+    </div>
+  </section>
+
+  <!-- Section 2: The Airlock (Pillars) -->
+  <section
+    id="airlock"
+    class="min-h-screen py-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col justify-center relative z-10 bg-transparent"
+  >
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Career Pillar -->
+      <article class="pillar-card career">
+        <h3 class="text-3xl mb-4 uppercase tracking-widest text-blue">
+          Career
+        </h3>
+        <p class="mb-8 text-gray-300 font-mono text-sm h-16">
+          Software Engineer @ Google Home. Systems optimization, Mojo/Kotlin.
+        </p>
+        <ul class="font-mono text-xs space-y-4 text-gray-400">
+          <li>> Former Startup CTO</li>
+          <li>> BYU ACME</li>
+          <li>> High-performance architectures</li>
+        </ul>
+      </article>
+
+      <!-- Projects Pillar -->
+      <article class="pillar-card projects">
+        <h3 class="text-3xl mb-4 uppercase tracking-widest text-orange">
+          Projects
+        </h3>
+        <p class="mb-8 text-gray-300 font-mono text-sm h-16">
+          Timothy Builds brand. Maverick FX4 Mods, Corvette EV Conversion.
+        </p>
+        <ul class="font-mono text-xs space-y-4 text-gray-400">
+          <li>> The Potato Farm Server Cluster</li>
+          <li>> Hardware & Robotics</li>
+          <li>> Open-source tooling</li>
+        </ul>
+      </article>
+
+      <!-- Adventures Pillar -->
+      <article class="pillar-card adventures">
+        <h3 class="text-3xl mb-4 uppercase tracking-widest text-green">
+          Adventures
+        </h3>
+        <p class="mb-8 text-gray-300 font-mono text-sm h-16">
+          Space-themed expeditions. Military Site Tours, Event logging.
+        </p>
+        <ul class="font-mono text-xs space-y-4 text-gray-400">
+          <li>> HYROX/Ragnar Athlete</li>
+          <li>> Armenian Language</li>
+          <li>> Exploration mapping</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Section 3: Mission Control -->
+  <section
+    id="mission-control"
+    class="min-h-screen py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 bg-transparent"
+  >
+    <!-- Log Feed -->
+    <!-- <div class="mb-24 space-y-8 font-mono">
+      <div class="border-l-2 border-gray-700 border-solid pl-6 relative">
+        <span class="absolute -left-[5px] top-1 w-3 h-3 rounded-full bg-gray-500"></span>
+        <div class="flex justify-between items-start">
+          <h4 class="text-xl text-blue">Software Engineer @ Google</h4>
+          <span class="text-xs text-gray-500">[ 2024 - PRESENT ]</span>
+        </div>
+        <p class="text-sm text-gray-400 mt-2">Smart Home optimizations.</p>
+      </div>
+      <div class="border-l-2 border-gray-700 border-solid pl-6 relative">
+        <span class="absolute -left-[5px] top-1 w-3 h-3 rounded-full bg-gray-500"></span>
+        <div class="flex justify-between items-start">
+          <h4 class="text-xl text-blue">Startup CTO</h4>
+          <span class="text-xs text-gray-500">[ 2022 - 2024 ]</span>
+        </div>
+        <p class="text-sm text-gray-400 mt-2">Architecture and scaling.</p>
+      </div>
+    </div> -->
+
+    <!-- Mosaic Gallery -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-32">
+      <!-- Image 1 -->
+      <div class="mosaic-frame projects h-64">
+        <div class="rgb-tag">SYS://EV-MOD</div>
+        <div class="w-full h-full bg-gray-800 flex items-center justify-center">
+          <span class="font-mono text-gray-600">[ IMAGE FEED DETACHED ]</span>
+        </div>
+      </div>
+      <!-- Image 2 -->
+      <div class="mosaic-frame adventures h-64 lg:col-span-2">
+        <div class="rgb-tag">LOC://RAGNAR</div>
+        <div class="w-full h-full bg-gray-800 flex items-center justify-center">
+          <span class="font-mono text-gray-600">[ IMAGE FEED DETACHED ]</span>
+        </div>
+      </div>
+      <!-- Image 3 -->
+      <div class="mosaic-frame career h-64 lg:col-span-3">
+        <div class="rgb-tag">DAT://CLUSTER</div>
+        <div class="w-full h-full bg-gray-800 flex items-center justify-center">
+          <span class="font-mono text-gray-600">[ IMAGE FEED DETACHED ]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exit Strategy -->
+    <div
+      class="flex flex-col md:flex-row justify-center items-center gap-8 pb-12"
+    >
+      <a href="/projects" class="bracket-btn text-orange"
+        >[ open_project_archive ]</a
+      >
+      <a href="/blog" class="bracket-btn text-green">[ open_adventure_logs ]</a>
+      <a href="/resume" class="bracket-btn text-blue">[ download_full_cv ]</a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  section {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Utilities */
+  .h-screen {
+    min-height: 100vh;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .flex {
+    display: flex;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .flex-row {
+    flex-direction: row;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
+  }
+  .relative {
+    position: relative;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  .text-5xl {
+    font-size: 3rem;
+  }
+  .text-7xl {
+    font-size: 4.5rem;
+  }
+  .text-3xl {
+    font-size: 1.875rem;
+  }
+  .text-xl {
+    font-size: 1.25rem;
+  }
+  .text-sm {
+    font-size: 0.875rem;
+  }
+  .text-xs {
+    font-size: 0.75rem;
+  }
+
+  .font-black {
+    font-weight: 900;
+  }
+  .font-medium {
+    font-weight: 500;
+  }
+
+  .text-gray-300 {
+    color: #d1d5db;
+  }
+  .text-gray-400 {
+    color: #9ca3af;
+  }
+  .text-gray-500 {
+    color: #6b7280;
+  }
+  .text-gray-600 {
+    color: #4b5563;
+  }
+  .text-gray-700 {
+    color: #374151;
+  }
+  .bg-gray-500 {
+    background-color: #6b7280;
+  }
+  .bg-gray-800 {
+    background-color: #1f2937;
+  }
+
+  .bg-transparent {
+    background-color: transparent;
+  }
+  .bg-space-dark {
+    background-color: #0a0a0a;
+  }
+  .full-bleed {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+  .z-10 {
+    z-index: 10;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+  .mb-24 {
+    margin-bottom: 6rem;
+  }
+  .mb-32 {
+    margin-bottom: 8rem;
+  }
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+  .pb-12 {
+    padding-bottom: 3rem;
+  }
+  .py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .pl-6 {
+    padding-left: 1.5rem;
+  }
+
+  .bottom-12 {
+    bottom: 3rem;
+  }
+  .-left-\[5px\] {
+    left: -5px;
+  }
+  .top-1 {
+    top: 0.25rem;
+  }
+
+  .w-2 {
+    width: 0.5rem;
+  }
+  .w-3 {
+    width: 0.75rem;
+  }
+  .h-2 {
+    height: 0.5rem;
+  }
+  .h-3 {
+    height: 0.75rem;
+  }
+  .h-16 {
+    height: 4rem;
+  }
+  .h-64 {
+    height: 16rem;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .h-full {
+    height: 100%;
+  }
+
+  .rounded-full {
+    border-radius: 9999px;
+  }
+  .border-l-2 {
+    border-left-width: 2px;
+  }
+  .border-solid {
+    border-style: solid;
+    border-color: #374151;
+  }
+
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  .space-y-8 > * + * {
+    margin-top: 2rem;
+  }
+  .gap-8 {
+    gap: 2rem;
+  }
+  .gap-4 {
+    gap: 1rem;
+  }
+
+  .tracking-widest {
+    letter-spacing: 0.1em;
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .max-w-7xl {
+    max-width: 80rem;
+  }
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grid {
+    display: grid;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    .md\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .md\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .md\:px-12 {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    .md\:text-7xl {
+      font-size: 4.5rem;
+    }
+    .md\:text-5xl {
+      font-size: 3rem;
+    }
+    .md\:flex-row {
+      flex-direction: row;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .lg\:col-span-2 {
+      grid-column: span 2 / span 2;
+    }
+    .lg\:col-span-3 {
+      grid-column: span 3 / span 3;
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>

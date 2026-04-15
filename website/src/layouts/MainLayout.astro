@@ -4,9 +4,12 @@ import Starfield from "../components/Starfield.astro";
 
 const currentPath = Astro.url.pathname;
 const isHome = currentPath === "/";
+const is404 = currentPath === "/404" || currentPath === "/404.html";
 const isProjects = currentPath.startsWith("/projects");
 const isBlog = currentPath.startsWith("/blog");
 const isResume = currentPath.startsWith("/resume");
+
+const showStarfield = isHome || is404;
 ---
 
 <!doctype html>
@@ -24,8 +27,8 @@ const isResume = currentPath.startsWith("/resume");
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
   </head>
-  <body>
-    <Starfield />
+  <body style={!showStarfield ? "background-color: #050505;" : ""}>
+    {showStarfield && <Starfield />}
 
     <!-- Mouse Follower -->
     <div id="mouse-glow"></div>
@@ -44,7 +47,7 @@ const isResume = currentPath.startsWith("/resume");
     </header>
 
     <!-- Main Content Slot -->
-    <main>
+    <main class={isHome ? "snap-y" : ""}>
       <slot />
 
       <!-- Spaceship HUD / Command Bar Footer -->
@@ -61,8 +64,14 @@ const isResume = currentPath.startsWith("/resume");
         </div>
 
         <div class="hud-right">
-          <a href="#">[ github ]</a>
-          <a href="#">[ youtube ]</a>
+          <a href="https://github.com/tabrownies" target="_blank">[ github ]</a>
+          <a href="https://www.youtube.com/@timothybuilds" target="_blank"
+            >[ youtube ]</a
+          >
+          <a
+            href="https://www.linkedin.com/in/timothy-a-brown77/"
+            target="_blank">[ linkedin ]</a
+          >
         </div>
       </footer>
     </main>
@@ -127,8 +136,10 @@ const isResume = currentPath.startsWith("/resume");
       main {
         height: 100vh;
         overflow-y: scroll;
-        scroll-snap-type: y mandatory;
         scrollbar-width: none; /* Hide scrollbar for a cleaner look */
+      }
+      main.snap-y {
+        scroll-snap-type: y mandatory;
       }
       main::-webkit-scrollbar {
         display: none;

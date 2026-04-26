@@ -2,7 +2,7 @@
 title: "Log: Watching a Comet on the Salt Flats"
 date: 2026-04-19
 category: "Adventures"
-cover_image: "/placeholder-project.jpg"
+cover_image: "../../assets/placeholder-project.jpg"
 summary: "Mission logs from the Bonneville Salt Flats comet observation."
 tags: ["utah", "celestial-event", "the-nasa-hoodies"]
 ---

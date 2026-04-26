@@ -1,5 +1,6 @@
 ---
 export const prerender = false;
+import { Image } from "astro:assets";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 import { HEADER_CONFIGS } from "../../data/headers";
@@ -53,7 +54,7 @@ const finalDesc = manualDesc
             style="color: inherit; text-decoration: none;"
           >
             {project.data.cover_image && (
-              <img
+              <Image
                 src={project.data.cover_image}
                 alt={project.data.title}
                 class="card-img project-img"

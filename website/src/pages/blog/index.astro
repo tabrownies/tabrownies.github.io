@@ -1,5 +1,6 @@
 ---
 export const prerender = false;
+import { Image } from "astro:assets";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
 import { HEADER_CONFIGS } from "../../data/headers";
@@ -71,7 +72,7 @@ const finalDesc = manualDesc
                   <h2 class="card-title">{post.data.title}</h2>
                 </div>
                 {post.data.cover_image && (
-                  <img
+                  <Image
                     src={post.data.cover_image}
                     alt={post.data.title}
                     class="card-img blog-img"

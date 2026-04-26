@@ -2,7 +2,7 @@
 title: "Log: Chasing Satellite OSIRIS-REx"
 date: 2026-04-20
 category: "Adventures"
-cover_image: "/placeholder-project.jpg"
+cover_image: "../../assets/placeholder-project.jpg"
 summary: "Tracking and observation logs for OSIRIS-REx."
 tags: ["the-nasa-hoodies", "nasa","hiking","utah","satellite","nevada"]
 ---

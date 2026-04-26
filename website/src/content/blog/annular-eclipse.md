@@ -1,12 +1,13 @@
 ---
-title: "Log: Annular Eclipse"
-date: 2026-04-24
+title: "Annular Eclipse"
+date: 2023-10-14
 category: "Adventures"
-cover_image: "/placeholder-project.jpg"
-summary: "Observation logs from the annular eclipse event."
+cover_image: "../../assets/blog/annular-eclipse/ring-of-fire.jpg"
+summary: "Annular eclipse in Southern Utah."
 tags: ["camping", "eclipse","utah","photography","the-nasa-hoodies"]
 ---
 
 # Annular Eclipse
 
-Placeholder for the annular eclipse blog post.
+![Hero Image](../../assets/projects/brick-breaker/hero.jpg)
+<!-- ![picture of annular eclipse](../../assets/blog/annular-eclipse/ring-of-fire.jpg) -->

@@ -69,6 +69,14 @@ p {
   line-height: 1.6;
 }
 
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: bold;
+}
+
 .font-mono {
   font-family: var(--font-mono);
 }

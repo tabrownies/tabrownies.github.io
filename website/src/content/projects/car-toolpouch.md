@@ -5,6 +5,7 @@ category: "Projects"
 summary: "This toolbag attaches to the side of the inside of the car and has room for many frequently used tools. It doesn't require damaging the car at all."
 cover_image: "../../assets/projects/toolpouch/finished.webp"
 tags: ["maverick-mod","truck","diy","tools"]
+hidden: false
 ---
 
 ## Car Toolpouch

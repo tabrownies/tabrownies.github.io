@@ -5,6 +5,7 @@ category: "Projects"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "A central repository and system for personal knowledge management and retrieval."
 tags: ["documentation"]
+hidden: true
 ---
 
 # Enchiridion

@@ -5,6 +5,7 @@ category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "Expedition logs from visiting the Pando aspen grove."
 tags: ["science","the-nasa-hoodies","utah"]
+hidden: true
 ---
 
 # Visiting Pando

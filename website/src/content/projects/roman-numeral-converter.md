@@ -5,6 +5,7 @@ category: "Projects"
 summary: "A simple web application which converts numbers between Roman Numerals and Arabic Numerals."
 cover_image: "../../assets/projects/roman-numeral-converter/hero.jpg"
 tags: ["html","css","javascript","job-application","math"]
+hidden: false
 ---
 
 ## Roman Numeral Converter

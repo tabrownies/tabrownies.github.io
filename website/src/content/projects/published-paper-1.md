@@ -5,6 +5,7 @@ category: "Projects"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "Research publication exploring advanced system architectures and telemetry data."
 tags: ["publication", "machine-learning", "family-history-technology-lab", "job-project", "named-entity-recognition"]
+hidden: true
 ---
 
 # Published Paper 1

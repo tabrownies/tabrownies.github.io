@@ -5,6 +5,7 @@ category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "Telemetry and observations from a dark sky preserve mission."
 tags: ["camping","the-nasa-hoodies","utah"]
+hidden: true
 ---
 
 # Stargazing at a Dark Sky Preserve

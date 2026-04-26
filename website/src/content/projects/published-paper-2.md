@@ -5,6 +5,7 @@ category: "Projects"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "Research publication focusing on hardware-software integration and field observations."
 tags: ["publication", "machine-learning", "family-history-technology-lab", "job-project", "handwriting-recognition"]
+hidden: true
 ---
 
 # Published Paper 2

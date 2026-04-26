@@ -5,6 +5,7 @@ category: "Projects"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "Localization project translating core Git commands and documentation into Armenian."
 tags: ["github","git","armenian","open-source","documentation"]
+hidden: true
 ---
 
 # Armenian Translation of Git Commands

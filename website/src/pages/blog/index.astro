@@ -13,6 +13,7 @@ const parsedTags = rawTags ? rawTags.split(/[\s+]+/).filter(Boolean) : [];
 
 // Filter collection
 const filteredBlog = blogCollection.filter((item) => {
+  if (item.data.hidden) return false;
   if (parsedTags.length === 0) return true;
   return parsedTags.every((t) => item.data.tags.includes(t));
 });

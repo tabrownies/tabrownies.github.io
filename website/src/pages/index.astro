@@ -1,14 +1,17 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 
 const projects = await getCollection("projects");
 const topProjects = [...projects]
+  .filter((item) => !item.data.hidden)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 4);
 
 const blog = await getCollection("blog");
 const topBlog = [...blog]
+  .filter((item) => !item.data.hidden)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 4);
 ---
@@ -109,7 +112,7 @@ const topBlog = [...blog]
                   href={`/projects/${project.id}`}
                   class="visual-card project-card"
                 >
-                  <img
+                  <Image
                     src={project.data.cover_image}
                     alt={project.data.title}
                     class="visual-image"
@@ -139,7 +142,7 @@ const topBlog = [...blog]
             {
               topBlog.slice(0, 2).map((post) => (
                 <a href={`/blog/${post.id}`} class="visual-card blog-card">
-                  <img
+                  <Image
                     src={post.data.cover_image}
                     alt={post.data.title}
                     class="visual-image"

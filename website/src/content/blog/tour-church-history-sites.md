@@ -5,6 +5,7 @@ category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "Route logs and historical data from the DC to Utah return trip."
 tags: ["road-trip", "church-history", "illinois","missouri"]
+hidden: true
 ---
 
 # Tour Church History Sites

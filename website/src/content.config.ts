@@ -11,6 +11,7 @@ const projectsCollection = defineCollection({
     cover_image: image().optional(),
     summary: z.string(),
     tags: z.array(ProjectTagSchema),
+    hidden: z.boolean().default(false),
   }),
 });
 
@@ -23,6 +24,7 @@ const blogCollection = defineCollection({
     cover_image: image().optional(),
     summary: z.string(),
     tags: z.array(AdventureTagSchema),
+    hidden: z.boolean().default(false),
   }),
 });
 

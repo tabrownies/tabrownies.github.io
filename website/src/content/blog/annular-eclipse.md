@@ -5,6 +5,7 @@ category: "Adventures"
 cover_image: "../../assets/blog/annular-eclipse/ring-of-fire.jpg"
 summary: "Total annular eclipse in Southern Utah."
 tags: ["camping", "eclipse","utah","photography","the-nasa-hoodies"]
+hidden: false
 ---
 
 

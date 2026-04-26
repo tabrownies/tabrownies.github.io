@@ -5,6 +5,7 @@ category: "Projects"
 summary: "Unlike other online games which rely on a scripting language to accept user input, update the game display, and alert the user when they win (or lose), THE GAME exclusively employs HTML and CSS to implement its functionality."
 cover_image: "../../assets/projects/pure_css_maze/hero.png"
 tags: ["gaming","html","css","school-project"]
+hidden: false
 ---
 
 ## Pure CSS Maze Game

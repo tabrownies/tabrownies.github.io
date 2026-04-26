@@ -5,6 +5,7 @@ category: "Projects"
 summary: "As a research lead in the Family History Technology Lab, I made the Reverse Indexing application 12 times more efficient in both storage usage and speed."
 cover_image: "../../assets/projects/reverse_indexing/hero.png"
 tags: ["machine-learning","html","css","javascript","angular","aws","family-history", "family-history-technology-lab", "job-project"]
+hidden: false
 ---
 
 ## Reverse Indexing

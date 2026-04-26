@@ -5,6 +5,7 @@ category: "Projects"
 summary: "I developed a simple web application which uses KMeans clustering to apply an interesting filter to images."
 cover_image: "../../assets/projects/kmeans/star_wars.png"
 tags: ["machine-learning", "html", "css", "javascript", "image-processing", "math", "art"]
+hidden: false
 ---
 
 ## KMeans Image Filter

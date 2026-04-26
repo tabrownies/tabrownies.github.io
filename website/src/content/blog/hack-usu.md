@@ -5,6 +5,7 @@ category: "Projects"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "Development logs and system architecture from Hack USU."
 tags: ["hackathon","utah"]
+hidden: true
 ---
 
 # Hack USU

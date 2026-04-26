@@ -5,6 +5,7 @@ category: "Projects"
 summary: "After using an open source Arduino library in a number of personal projects, I contributed to it's development on GitHub."
 cover_image: "../../assets/projects/ps2x/PS2_Dualshock2_Controller.jpeg"
 tags: ["childhood-project", "arduino","github", "gaming", "open-source"]
+hidden: false
 ---
 
 ## PS2X GitHub Contribution

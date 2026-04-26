@@ -5,6 +5,7 @@ category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "Observation logs from the total solar eclipse event."
 tags: ["celestial-event","eclipse","texas","road-trip","the-nasa-hoodies","history"]
+hidden: true
 ---
 
 # Total Solar Eclipse

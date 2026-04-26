@@ -5,6 +5,7 @@ category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"
 summary: "Tracking and observation logs for OSIRIS-REx."
 tags: ["the-nasa-hoodies", "nasa","hiking","utah","satellite","nevada"]
+hidden: true
 ---
 
 # Chasing Satellite OSIRIS-REx

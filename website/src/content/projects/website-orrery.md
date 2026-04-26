@@ -5,6 +5,7 @@ category: "Projects"
 summary: "A simple website mimicking the rotation of the planets around the sun."
 cover_image: "../../assets/projects/solar-system/hero.jpg"
 tags: ["javascript","html","css","school-project","space"]
+hidden: false
 ---
 
 ## Website Orrery

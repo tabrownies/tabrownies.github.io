@@ -5,6 +5,7 @@ category: "Projects"
 summary: "A simple brick-breaker game I built in eighth grade using basic Javascript and an HTML canvas."
 cover_image: "../../assets/projects/brick-breaker/hero.jpg"
 tags: ["javascript","html","css","childhood-project", "gaming"]
+hidden: false
 ---
 
 ## Brick Breaker

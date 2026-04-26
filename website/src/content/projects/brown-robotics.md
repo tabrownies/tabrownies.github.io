@@ -5,6 +5,7 @@ category: "Projects"
 summary: "After placing fourth in a national robotics competition, I marketed a week long summer robotics class for youth."
 cover_image: "../../assets/projects/brown-robotics/hero.jpeg"
 tags: ["lego-mindstorms", "robotics", "tutoring"]
+hidden: false
 ---
 
 ## Brown Robotics

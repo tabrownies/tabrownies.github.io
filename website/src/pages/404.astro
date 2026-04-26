@@ -1,0 +1,70 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+  <div class="error-container">
+    <div class="content-box">
+      <h1 class="error-text">// ERR 404: SIGNAL_LOST</h1>
+      <a href="/" class="cmd-cta error-cta">
+        <span class="cmd-prompt">&gt;</span>
+        <span class="cmd-text">return to home</span>
+      </a>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding: 1.5rem;
+  }
+  
+  .content-box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 3rem;
+    border: 1px solid #333;
+    backdrop-filter: blur(4px);
+  }
+  
+  .error-text {
+    font-family: var(--font-mono);
+    color: #f5f5f5;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  
+  @media (min-width: 768px) {
+    .error-text {
+      font-size: 3rem;
+    }
+  }
+  
+  .error-cta {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Link hover functionality */
+  .error-cta:hover {
+    color: rgba(255, 255, 255, 0.7); /* Base text remains same initially */
+  }
+
+  .error-cta:hover .cmd-text {
+    color: rgb(67, 127, 255); /* Blue */
+    transform: translateX(8px);
+  }
+  
+  .error-cta:hover .cmd-prompt {
+    animation: blink-cmd 0.5s infinite;
+  }
+</style>

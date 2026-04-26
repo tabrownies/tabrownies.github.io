@@ -1,8 +1,190 @@
 ---
-import MainLayout from '../../layouts/MainLayout.astro';
+export const prerender = false;
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+import { HEADER_CONFIGS } from "../../data/headers";
+
+const blogCollection = await getCollection("blog");
+
+const urlParams = Astro.url.searchParams;
+const rawTags = urlParams.get("tags");
+const parsedTags = rawTags ? rawTags.split(/[\s+]+/).filter(Boolean) : [];
+
+// Filter collection
+const filteredBlog = blogCollection.filter((item) => {
+  if (parsedTags.length === 0) return true;
+  return parsedTags.every((t) => item.data.tags.includes(t));
+});
+
+const blogEntries = [...filteredBlog].sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+// Find matching config
+const winningConfig = HEADER_CONFIGS.find((config) => {
+  if (config.matchTags.length === 0) return false;
+  // Ensure the exact combination of tags
+  if (config.matchTags.length !== parsedTags.length) return false;
+  return config.matchTags.every((t) => parsedTags.includes(t));
+});
+
+// Display logic (Hierarchy of Truth)
+const manualTitle = urlParams.get("title");
+const manualDesc = urlParams.get("desc");
+
+const finalTitle = manualTitle
+  ? decodeURIComponent(manualTitle)
+  : winningConfig?.title || "Adventure Log";
+const finalDesc = manualDesc
+  ? decodeURIComponent(manualDesc)
+  : winningConfig?.description ||
+    "System logs and field reports from various expeditions.";
 ---
+
 <MainLayout>
-  <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
-    <h1>Blog Archive</h1>
+  <div class="content-container">
+    <h1 class="page-title text-green">{finalTitle}</h1>
+    {finalDesc && <p class="page-description">{finalDesc}</p>}
+
+    <div class="system-log-container">
+      {
+        blogEntries.map((post) => {
+          // Format date as MMM.YYYY
+          const dateObj = new Date(post.data.date);
+          const month = dateObj
+            .toLocaleString("default", { month: "short" })
+            .toUpperCase();
+          const year = dateObj.getFullYear();
+          const formattedDate = `${month}.${year}`;
+
+          return (
+            <article class="log-node-wrapper">
+              {/* Node on the line */}
+              <div class="log-node" />
+              <a
+                href={`/blog/${post.id}`}
+                class="pillar-card adventures log-card"
+                style="color: inherit; text-decoration: none;"
+              >
+                <div class="log-header">
+                  <span class="log-date">{formattedDate}</span>
+                  <h2 class="card-title">{post.data.title}</h2>
+                </div>
+                {post.data.cover_image && (
+                  <img
+                    src={post.data.cover_image}
+                    alt={post.data.title}
+                    class="card-img blog-img"
+                  />
+                )}
+                <p class="card-summary">{post.data.summary}</p>
+                <div class="cmd-cta adventures mt-auto">
+                  <span class="cmd-prompt">&gt;</span>{" "}
+                  <span class="cmd-text">see more</span>
+                </div>
+              </a>
+            </article>
+          );
+        })
+      }
+    </div>
   </div>
 </MainLayout>
+
+<style>
+  .content-container {
+    padding: 6rem 1.5rem;
+    max-width: 48rem; /* narrower for reading */
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+  }
+  @media (min-width: 768px) {
+    .content-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+  .page-title {
+    font-size: 1.875rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-mono);
+  }
+  .page-description {
+    color: #9ca3af;
+    margin-bottom: 3rem;
+    font-family: "Roboto", sans-serif;
+    max-width: 40rem;
+  }
+
+  .system-log-container {
+    border-left: 1px solid #333;
+    padding-left: 2rem;
+    position: relative;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .log-node-wrapper {
+    position: relative;
+  }
+
+  .log-node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--pillar3-accent);
+    border-radius: 50%;
+    left: -38px; /* 2rem pl = 32px + half node = 38px */
+    top: 1rem;
+    box-shadow: 0 0 8px var(--pillar3-accent);
+  }
+
+  .log-card {
+    padding: 1.5rem;
+  }
+
+  .log-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .log-date {
+    font-family: var(--font-mono);
+    color: var(--pillar3-accent);
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-family: var(--font-mono);
+    color: white;
+  }
+
+  .card-img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1px;
+  }
+  .blog-img {
+    border: 2px solid var(--pillar3-accent);
+  }
+
+  .card-summary {
+    margin-bottom: 1rem;
+    color: #d1d5db;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.875rem;
+  }
+
+  .mt-auto {
+    margin-top: auto;
+  }
+</style>

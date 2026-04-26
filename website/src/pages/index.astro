@@ -1,5 +1,16 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+const topProjects = [...projects]
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+const blog = await getCollection("blog");
+const topBlog = [...blog]
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
 ---
 
 <MainLayout>
@@ -7,7 +18,9 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   <section id="launchpad">
     <div class="text-center flex flex-col items-center">
-      <h1 style="color: whitesmoke; font-size: 3rem; padding: 20px; font-weight: 400;">
+      <h1
+        style="color: whitesmoke; font-size: 3rem; padding: 20px; font-weight: 400;"
+      >
         My name is <span style="color: rgb(67, 127, 255);">Timothy.</span>
       </h1>
       <h2 style="color: whitesmoke; font-size: 2rem; font-weight: 400;">
@@ -39,12 +52,12 @@ import MainLayout from "../layouts/MainLayout.astro";
           Career
         </h3>
         <p class="mb-8 text-gray-300 font-mono text-sm h-16">
-          Software Engineer @ Google Home. Systems optimization, Mojo/Kotlin.
+          Software Engineer @ Google, Former Startup CTO.
         </p>
-        <ul class="font-mono text-xs space-y-4 text-gray-400">
-          <li>> Former Startup CTO</li>
-          <li>> BYU ACME</li>
-          <li>> High-performance architectures</li>
+        <ul class="pillar-list font-mono text-xs space-y-4 text-gray-400">
+          <li>Valedictorian — B.S. in Applied Mathematics at BYU (2024)</li>
+          <li>Sandbox Entrepreneurship Program</li>
+          <li>Published Machine Learning Researcher</li>
         </ul>
       </article>
 
@@ -54,12 +67,13 @@ import MainLayout from "../layouts/MainLayout.astro";
           Projects
         </h3>
         <p class="mb-8 text-gray-300 font-mono text-sm h-16">
-          Timothy Builds brand. Maverick FX4 Mods, Corvette EV Conversion.
+          Lifelong tinkerer, always building something.
         </p>
-        <ul class="font-mono text-xs space-y-4 text-gray-400">
-          <li>> The Potato Farm Server Cluster</li>
-          <li>> Hardware & Robotics</li>
-          <li>> Open-source tooling</li>
+        <ul class="pillar-list font-mono text-xs space-y-4 text-gray-400">
+          <li>Web Development</li>
+          <li>Data Science / Machine Learning</li>
+          <li>Hardware Hacking</li>
+          <li>Budget Ford Maverick Mods</li>
         </ul>
       </article>
 
@@ -69,12 +83,13 @@ import MainLayout from "../layouts/MainLayout.astro";
           Adventures
         </h3>
         <p class="mb-8 text-gray-300 font-mono text-sm h-16">
-          Space-themed expeditions. Military Site Tours, Event logging.
+          Exploring the world (and universe) to its fullest.
         </p>
-        <ul class="font-mono text-xs space-y-4 text-gray-400">
-          <li>> HYROX/Ragnar Athlete</li>
-          <li>> Armenian Language</li>
-          <li>> Exploration mapping</li>
+        <ul class="pillar-list font-mono text-xs space-y-4 text-gray-400">
+          <li>Satellite Launches (and Landings)</li>
+          <li>Celestial Events</li>
+          <li>Historic Scientific Landmarks</li>
+          <li>Natural Terrestrial Wonders</li>
         </ul>
       </article>
     </div>
@@ -82,46 +97,87 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   <!-- Section 3: Mission Control -->
   <section id="mission-control">
-    <!-- Mosaic Gallery -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-32 px-6 md:px-12 max-w-7xl mx-auto w-full"
-    >
-      <!-- Image 1 -->
-      <div class="mosaic-frame projects h-64">
-        <div class="rgb-tag">SYS://EV-MOD</div>
-        <div class="w-full h-full bg-gray-800 flex items-center justify-center">
-          <span class="font-mono text-gray-600">[ IMAGE FEED DETACHED ]</span>
+    <div class="px-6 md:px-12 max-w-7xl mx-auto w-full">
+      <div class="telemetry-glass-container">
+        <!-- Left Column: Projects Feed -->
+        <div class="telemetry-column">
+          <h3 class="telemetry-header text-orange">[ Recent Projects ]</h3>
+          <div class="visual-feed">
+            {
+              topProjects.slice(0, 2).map((project) => (
+                <a
+                  href={`/projects/${project.id}`}
+                  class="visual-card project-card"
+                >
+                  <img
+                    src={project.data.cover_image}
+                    alt={project.data.title}
+                    class="visual-image"
+                  />
+                  <div class="visual-overlay">
+                    <div>
+                      <div class="telemetry-date">
+                        [{project.data.date.toISOString().split("T")[0]}]
+                      </div>
+                      <div class="telemetry-title">{project.data.title}</div>
+                    </div>
+                    <span class="telemetry-arrow">&rarr;</span>
+                  </div>
+                </a>
+              ))
+            }
+          </div>
         </div>
-      </div>
-      <!-- Image 2 -->
-      <div class="mosaic-frame adventures h-64 lg:col-span-2">
-        <div class="rgb-tag">LOC://RAGNAR</div>
-        <div class="w-full h-full bg-gray-800 flex items-center justify-center">
-          <span class="font-mono text-gray-600">[ IMAGE FEED DETACHED ]</span>
-        </div>
-      </div>
-      <!-- Image 3 -->
-      <div class="mosaic-frame career h-64 lg:col-span-3">
-        <div class="rgb-tag">DAT://CLUSTER</div>
-        <div class="w-full h-full bg-gray-800 flex items-center justify-center">
-          <span class="font-mono text-gray-600">[ IMAGE FEED DETACHED ]</span>
-        </div>
-      </div>
-    </div>
 
-    <!-- Exit Strategy -->
-    <div
-      class="flex flex-col md:flex-row justify-center items-center gap-8 pb-12"
-    >
-      <a href="/projects" class="cmd-cta projects">
-        <span class="cmd-prompt">&gt;</span> <span class="cmd-text">view all projects</span>
-      </a>
-      <a href="/blog" class="cmd-cta adventures">
-        <span class="cmd-prompt">&gt;</span> <span class="cmd-text">read adventure logs</span>
-      </a>
-      <a href="/resume" class="cmd-cta career">
-        <span class="cmd-prompt">&gt;</span> <span class="cmd-text">download resume</span>
-      </a>
+        <!-- Telemetry Center Gutter -->
+        <div class="telemetry-divider"></div>
+
+        <!-- Right Column: Adventures Feed -->
+        <div class="telemetry-column adventures-column">
+          <h3 class="telemetry-header text-green">[ Latest Adventures ]</h3>
+          <div class="visual-feed">
+            {
+              topBlog.slice(0, 2).map((post) => (
+                <a href={`/blog/${post.id}`} class="visual-card blog-card">
+                  <img
+                    src={post.data.cover_image}
+                    alt={post.data.title}
+                    class="visual-image"
+                  />
+                  <div class="visual-overlay">
+                    <div>
+                      <div class="telemetry-date">
+                        [{post.data.date.toISOString().split("T")[0]}]
+                      </div>
+                      <div class="telemetry-title">{post.data.title}</div>
+                    </div>
+                    <span class="telemetry-arrow">&rarr;</span>
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Directory Traversal Bottom Links -->
+      <div
+        class="flex flex-col md:flex-row justify-center items-center gap-8 pb-4"
+        style="margin-top: 4rem;"
+      >
+        <a href="/projects" class="cmd-cta projects">
+          <span class="cmd-prompt">&gt;</span>
+          <span class="cmd-text">view all projects</span>
+        </a>
+        <a href="/blog" class="cmd-cta adventures">
+          <span class="cmd-prompt">&gt;</span>
+          <span class="cmd-text">read adventure logs</span>
+        </a>
+        <a href="/resume" class="cmd-cta career">
+          <span class="cmd-prompt">&gt;</span>
+          <span class="cmd-text">download resume</span>
+        </a>
+      </div>
     </div>
   </section>
 </MainLayout>
@@ -143,6 +199,19 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   /* Utilities */
+  .pillar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .pillar-list li {
+    display: flex;
+    gap: 12px;
+  }
+  .pillar-list li::before {
+    content: ">";
+  }
+
   .h-screen {
     min-height: 100vh;
   }
@@ -399,5 +468,193 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
   .animate-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Telemetry Feed Section */
+  .telemetry-glass-container {
+    background: rgba(10, 15, 30, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    transition: box-shadow 0.4s ease;
+  }
+
+  .telemetry-divider {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #555 10%,
+      #555 90%,
+      transparent
+    );
+    margin: 1.5rem 0;
+  }
+
+  .telemetry-header {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  /* Visual Media Feed Polish */
+  .visual-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .visual-card {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.4s ease;
+  }
+
+  .visual-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+  }
+
+  .visual-card.project-card {
+    border: 1px solid rgba(255, 127, 67, 0.3);
+  }
+
+  .visual-card.blog-card {
+    border: 1px solid rgba(67, 255, 127, 0.3);
+  }
+
+  .visual-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+  }
+
+  .telemetry-arrow {
+    opacity: 0.3;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+
+  .telemetry-date {
+    opacity: 0.5;
+    font-weight: 300;
+    white-space: nowrap;
+    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    margin-bottom: 4px;
+  }
+
+  .telemetry-title {
+    opacity: 1;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Desktop Specific Polish */
+  @media (min-width: 768px) {
+    .telemetry-glass-container {
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1.5rem;
+    }
+    .telemetry-divider {
+      display: block;
+      width: 2px;
+      height: auto;
+      margin: 0;
+      justify-self: center;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        #555 10%,
+        #555 90%,
+        transparent
+      );
+    }
+    .visual-overlay {
+      padding: 1rem 1.5rem;
+      height: 4.5rem;
+    }
+    .telemetry-date {
+      font-size: 0.8rem;
+    }
+    .telemetry-title {
+      font-size: 1rem;
+    }
+    .telemetry-arrow {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .telemetry-glass-container {
+      grid-template-columns: 5fr auto 3fr;
+      gap: 3rem;
+      padding: 3.5rem 3rem 3rem;
+    }
+
+    .visual-card {
+      height: 240px;
+    }
+
+    .telemetry-title {
+      letter-spacing: 0.05em;
+    }
+  }
+
+  /* Animations & Interactivity */
+  .visual-card:hover .visual-image {
+    transform: scale(1.03);
+  }
+
+  .visual-card:hover .telemetry-arrow {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+
+  .visual-card.project-card:hover {
+    border-color: rgba(255, 127, 67, 1);
+    box-shadow: 0 0 16px rgba(255, 127, 67, 0.4);
+  }
+
+  .visual-card.blog-card:hover {
+    border-color: rgba(67, 255, 127, 1);
+    box-shadow: 0 0 16px rgba(67, 255, 127, 0.4);
   }
 </style>

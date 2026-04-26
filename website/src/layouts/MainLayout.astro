@@ -7,7 +7,6 @@ const isHome = currentPath === "/";
 const is404 = currentPath === "/404" || currentPath === "/404.html";
 const isProjects = currentPath.startsWith("/projects");
 const isBlog = currentPath.startsWith("/blog");
-const isResume = currentPath.startsWith("/resume");
 
 const showStarfield = isHome || is404;
 ---
@@ -42,7 +41,10 @@ const showStarfield = isHome || is404;
       <span class="slash">/</span>
       <a href="/blog" class={isBlog ? "active" : ""}>blog</a>
       <span class="slash">/</span>
-      <a href="/resume" class={isResume ? "active" : ""}>resume</a>
+      <a
+        href="/resume.pdf"
+        target="_blank">resume</a
+      >
       <span class="mobile-bracket">]</span>
     </header>
 

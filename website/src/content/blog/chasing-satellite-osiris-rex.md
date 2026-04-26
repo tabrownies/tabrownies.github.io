@@ -1,5 +1,5 @@
 ---
-title: "Log: Chasing Satellite OSIRIS-REx"
+title: "Chasing Satellite OSIRIS-REx"
 date: 2026-04-20
 category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"

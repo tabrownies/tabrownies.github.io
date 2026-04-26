@@ -42,7 +42,7 @@ export const PROJECT_TAGS = [
   "tools",
   "truck",
   "tutoring",
-  "web-scraping"
+  "web-scraping", "BYU", "react-native", "cardboard"
 ] as const;
 
 export const ADVENTURE_TAGS = [

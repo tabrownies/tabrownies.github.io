@@ -1,5 +1,5 @@
 ---
-title: "Log: Lunar Eclipse"
+title: "Lunar Eclipse"
 date: 2026-04-23
 category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"

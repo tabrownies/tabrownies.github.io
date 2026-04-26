@@ -1,5 +1,5 @@
 ---
-title: "Log: Tour Church History Sites"
+title: "Tour Church History Sites"
 date: 2026-04-17
 category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"

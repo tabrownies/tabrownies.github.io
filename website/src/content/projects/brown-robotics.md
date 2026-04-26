@@ -1,6 +1,6 @@
 ---
 title: "Brown Robotics"
-date: 2026-04-16
+date: 2017-07-1
 category: "Projects"
 summary: "After placing fourth in a national robotics competition, I marketed a week long summer robotics class for youth."
 cover_image: "../../assets/projects/brown-robotics/hero.jpeg"

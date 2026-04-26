@@ -1,6 +1,6 @@
 ---
 title: "Brick Breaker"
-date: 2026-04-16
+date: 2014-04-16
 category: "Projects"
 summary: "A simple brick-breaker game I built in eighth grade using basic Javascript and an HTML canvas."
 cover_image: "../../assets/projects/brick-breaker/hero.jpg"

@@ -1,5 +1,5 @@
 ---
-title: "Log: Total Solar Eclipse"
+title: "Total Solar Eclipse"
 date: 2026-04-25
 category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"

@@ -1,5 +1,5 @@
 ---
-title: "Log: Watching a Comet on the Salt Flats"
+title: "Watching a Comet on the Salt Flats"
 date: 2026-04-19
 category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"

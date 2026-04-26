@@ -1,5 +1,5 @@
 ---
-title: "Log: Visiting Pando"
+title: "Visiting Pando"
 date: 2026-04-22
 category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"

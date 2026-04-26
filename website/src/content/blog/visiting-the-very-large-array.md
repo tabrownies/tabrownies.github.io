@@ -1,5 +1,5 @@
 ---
-title: "Log: Visiting the Very Large Array"
+title: "Visiting the Very Large Array"
 date: 2026-04-16
 category: "Adventures"
 cover_image: "../../assets/placeholder-project.jpg"

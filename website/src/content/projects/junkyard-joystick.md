@@ -1,10 +1,10 @@
 ---
 title: "Junkyard Joystick"
-date: 2026-04-16
+date: 2021-01-08
 category: "Projects"
 summary: "Built primarily out of old cardboard boxes, bottle caps, and other materials I scavenged from my family's recycling bin over a winter break, this joystick is build completely from used materials and basic electronic components."
 cover_image: "../../assets/projects/junkyard-joystick/hero.jpeg"
-tags: ["arduino"]
+tags: ["arduino", "cardboard", "diy"]
 hidden: false
 ---
 

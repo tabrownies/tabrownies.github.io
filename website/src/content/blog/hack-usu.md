@@ -1,5 +1,5 @@
 ---
-title: "Log: Hack USU"
+title: "Hack USU"
 date: 2026-04-18
 category: "Projects"
 cover_image: "../../assets/placeholder-project.jpg"

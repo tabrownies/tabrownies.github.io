@@ -1,6 +1,6 @@
 ---
 title: "Roman Numeral Converter"
-date: 2026-04-16
+date: 2022-05-18
 category: "Projects"
 summary: "A simple web application which converts numbers between Roman Numerals and Arabic Numerals."
 cover_image: "../../assets/projects/roman-numeral-converter/hero.jpg"
@@ -12,4 +12,4 @@ hidden: false
 
 ![Hero Image](../../assets/projects/roman-numeral-converter/hero.jpg)
 
-A simple web application which converts numbers between Roman Numerals and Arabic Numerals. It can be accessed here.
+A simple web application which converts numbers between Roman Numerals and Arabic Numerals.

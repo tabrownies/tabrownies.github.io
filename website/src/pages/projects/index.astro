@@ -44,8 +44,10 @@ const finalDesc = manualDesc
 
 <MainLayout>
   <div class="content-container">
-    <h1 class="page-title text-orange">{finalTitle}</h1>
-    {finalDesc && <p class="page-description">{finalDesc}</p>}
+    <div class="page-header">
+      <h1 class="page-title text-orange">{finalTitle}</h1>
+      {finalDesc && <p class="page-description">{finalDesc}</p>}
+    </div>
     <div class="masonry-grid">
       {
         projects.map((project) => (
@@ -88,6 +90,9 @@ const finalDesc = manualDesc
       padding-right: 3rem;
     }
   }
+  .page-header {
+    margin-bottom: 2rem;
+  }
   .page-title {
     font-size: 1.875rem;
     margin-bottom: 0.5rem;
@@ -97,7 +102,6 @@ const finalDesc = manualDesc
   }
   .page-description {
     color: #9ca3af;
-    margin-bottom: 2rem;
     font-family: "Roboto", sans-serif;
     max-width: 40rem;
   }

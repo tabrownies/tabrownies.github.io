@@ -39,14 +39,15 @@ const finalTitle = manualTitle
   : winningConfig?.title || "Adventure Log";
 const finalDesc = manualDesc
   ? decodeURIComponent(manualDesc)
-  : winningConfig?.description ||
-    "System logs and field reports from various expeditions.";
+  : winningConfig?.description || "";
 ---
 
 <MainLayout>
   <div class="content-container">
-    <h1 class="page-title text-green">{finalTitle}</h1>
-    {finalDesc && <p class="page-description">{finalDesc}</p>}
+    <div class="page-header">
+      <h1 class="page-title text-green">{finalTitle}</h1>
+      {finalDesc && <p class="page-description">{finalDesc}</p>}
+    </div>
 
     <div class="system-log-container">
       {
@@ -107,6 +108,9 @@ const finalDesc = manualDesc
       padding-right: 3rem;
     }
   }
+  .page-header {
+    margin-bottom: 3rem;
+  }
   .page-title {
     font-size: 1.875rem;
     margin-bottom: 0.5rem;
@@ -116,7 +120,6 @@ const finalDesc = manualDesc
   }
   .page-description {
     color: #9ca3af;
-    margin-bottom: 3rem;
     font-family: "Roboto", sans-serif;
     max-width: 40rem;
   }

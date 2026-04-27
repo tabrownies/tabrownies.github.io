@@ -2,7 +2,7 @@
 title: "Armenian Translation of Git Commands"
 date: 2026-04-24
 category: "Projects"
-cover_image: "../../assets/placeholder-project.jpg"
+cover_image: ""
 summary: "Localization project translating core Git commands and documentation into Armenian."
 tags: ["github","git","armenian","open-source","documentation"]
 hidden: true

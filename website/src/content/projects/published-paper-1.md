@@ -2,7 +2,7 @@
 title: "Published Paper 1"
 date: 2026-04-25
 category: "Projects"
-cover_image: "../../assets/placeholder-project.jpg"
+cover_image: ""
 summary: "Research publication exploring advanced system architectures and telemetry data."
 tags: ["publication", "machine-learning", "family-history-technology-lab", "job-project", "named-entity-recognition"]
 hidden: true

@@ -2,7 +2,7 @@
 title: "Hack USU"
 date: 2026-04-18
 category: "Projects"
-cover_image: "../../assets/placeholder-project.jpg"
+cover_image: ""
 summary: "Development logs and system architecture from Hack USU."
 tags: ["hackathon","utah"]
 hidden: true

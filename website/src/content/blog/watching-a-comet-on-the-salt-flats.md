@@ -11,3 +11,4 @@ hidden: true
 # Watching a Comet on the Salt Flats
 
 Placeholder for the comet observation blog post.
+<https://en.wikipedia.org/wiki/Comet_Tsuchinshan%E2%80%93ATLAS>

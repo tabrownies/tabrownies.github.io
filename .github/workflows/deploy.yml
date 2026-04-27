@@ -23,8 +23,8 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
-          # Tell the action that the Astro project is in the 'website' folder
           path: ./website
+          node-version: 22
         
   deploy:
     needs: build

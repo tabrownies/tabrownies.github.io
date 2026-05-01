@@ -398,7 +398,8 @@ strong, b {
 }
 
 /* Markdown Image Protocol */
-.markdown-wrapper img {
+.markdown-wrapper img,
+.markdown-wrapper video {
   max-width: 100%;
   height: auto;
   border-radius: 1px;
@@ -410,7 +411,8 @@ strong, b {
   border: 2px solid var(--pillar2-accent);
 }
 
-.markdown-wrapper.theme-blog img {
+.markdown-wrapper.theme-blog img,
+.markdown-wrapper.theme-blog video {
   border: 2px solid var(--pillar3-accent);
 }
   /* Utilities */
